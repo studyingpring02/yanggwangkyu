@@ -20,7 +20,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.4rem 4rem;display:
 .nav-links a{font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;transition:color 0.3s}
 .nav-links a:hover{color:var(--gold)}
 
-/* HERO */
 .hero{height:100vh;display:grid;grid-template-columns:55% 45%;position:relative;overflow:hidden}
 .hero-img-wrap{position:relative;overflow:hidden}
 .hero-img-wrap img{width:100%;height:100%;object-fit:cover;object-position:center top;filter:grayscale(15%) contrast(1.05);transition:transform 8s ease}
@@ -32,8 +31,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.4rem 4rem;display:
 .hero-name-en{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.3rem,2.2vw,2rem);font-weight:300;color:var(--gold);letter-spacing:0.12em;margin-bottom:1.5rem;display:block}
 .hero-specs{display:flex;flex-direction:column;gap:0.5rem;margin-bottom:2rem}
 .hero-spec-row{font-size:0.8rem;color:var(--text-muted);letter-spacing:0.05em;display:flex;gap:1rem;align-items:center}
-.hero-spec-row span.val{color:var(--text-primary);font-weight:400}
-.hero-spec-divider{width:1px;height:14px;background:var(--border)}
+.hero-spec-row .val{color:var(--text-primary);font-weight:400}
+.hero-spec-div{width:1px;height:14px;background:var(--border)}
 .hero-desc{font-size:0.88rem;line-height:2;color:var(--text-muted);max-width:360px;margin-bottom:2.5rem;letter-spacing:0.03em;word-break:keep-all}
 .hero-cta{display:inline-flex;align-items:center;gap:0.9rem;font-size:0.72rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);text-decoration:none;padding-bottom:0.3rem;border-bottom:1px solid var(--gold);transition:gap 0.3s}
 .hero-cta:hover{gap:1.4rem}
@@ -44,67 +43,55 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.4rem 4rem;display:
 .scroll-line{width:1px;height:55px;background:linear-gradient(to bottom,var(--gold),transparent);animation:sp 2.2s infinite}
 @keyframes sp{0%{transform:scaleY(0);transform-origin:top;opacity:1}50%{transform:scaleY(1);transform-origin:top;opacity:1}100%{transform:scaleY(1);opacity:0}}
 
-/* STATS */
 .stats{background:var(--dark-surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2.2rem 4rem;display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;text-align:center}
 .stat{position:relative}
 .stat:not(:last-child)::after{content:'';position:absolute;right:0;top:50%;transform:translateY(-50%);width:1px;height:55%;background:var(--border)}
 .snum{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:300;color:var(--gold);line-height:1;margin-bottom:0.3rem}
 .slbl{font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-muted)}
 
-/* SECTION COMMON */
 section{padding:6rem 4rem}
 .sec-hd{display:flex;align-items:center;gap:1.8rem;margin-bottom:3.5rem}
 .sec-eye{font-family:'Cormorant Garamond',serif;font-size:0.75rem;letter-spacing:0.45em;color:var(--gold);text-transform:uppercase;writing-mode:vertical-rl;transform:rotate(180deg);opacity:0.65}
 .sec-title{font-family:'Noto Serif KR',serif;font-size:clamp(1.8rem,3vw,2.5rem);font-weight:300;line-height:1.2}
 .sec-line{flex:1;height:1px;background:linear-gradient(to right,var(--gold),transparent);opacity:0.28;margin-left:0.8rem}
 
-/* ABOUT */
 .about-sec{background:var(--dark-mid)}
 .about-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:5rem;align-items:start}
-.img-stack{position:relative;height:580px;flex-shrink:0}
+.img-stack{position:relative;height:580px}
 .img-main{position:absolute;top:0;left:0;width:76%;height:86%;object-fit:cover;object-position:center top;filter:grayscale(12%)}
 .img-accent{position:absolute;bottom:0;right:0;width:48%;height:52%;object-fit:cover;object-position:center top;filter:grayscale(12%);border:3px solid var(--dark-mid)}
 .gold-bar{position:absolute;left:-1.8rem;top:2.5rem;width:4px;height:110px;background:linear-gradient(to bottom,var(--gold),transparent)}
 .about-text h3{font-family:'Noto Serif KR',serif;font-size:1.3rem;font-weight:300;color:var(--gold);margin-bottom:1.2rem}
 .about-text p{font-size:0.88rem;line-height:2.1;color:rgba(245,240,232,0.72);margin-bottom:1.2rem;word-break:keep-all}
-
-/* PROFILE TABLE */
 .profile-table{width:100%;border-collapse:collapse;margin:1.8rem 0}
 .profile-table tr{border-bottom:1px solid var(--border)}
 .profile-table td{padding:0.75rem 0;font-size:0.85rem;line-height:1.6}
 .profile-table td:first-child{width:90px;color:var(--text-muted);font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;vertical-align:top;padding-top:0.85rem}
-.profile-table td:last-child{color:var(--text-primary)}
-
-/* SKILLS TAGS */
-.tags{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.5rem}
+.tags{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.3rem}
 .tag{font-size:0.68rem;letter-spacing:0.1em;padding:0.35rem 0.85rem;border:1px solid var(--border);color:var(--text-muted);transition:all 0.3s;cursor:default}
 .tag:hover{border-color:var(--gold);color:var(--gold)}
 .tag.hi{border-color:rgba(201,169,110,0.4);color:var(--gold)}
 
-/* FILMOGRAPHY */
 .film-sec{background:var(--dark)}
 .film-tabs{display:flex;gap:2.5rem;margin-bottom:2.5rem;border-bottom:1px solid var(--border);padding-bottom:1.2rem}
 .ftab{font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);background:none;border:none;cursor:pointer;padding:0.2rem 0;position:relative;transition:color 0.3s}
 .ftab.on{color:var(--gold)}
 .ftab.on::after{content:'';position:absolute;bottom:-1.2rem;left:0;right:0;height:1px;background:var(--gold)}
 .ftab:hover{color:var(--gold)}
-
 .film-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 .film-card{background:var(--dark-surface);border:1px solid var(--border);padding:1.6rem 1.8rem;transition:border-color 0.3s,transform 0.3s;cursor:default}
 .film-card:hover{border-color:rgba(201,169,110,0.45);transform:translateY(-2px)}
 .film-card-type{font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem;opacity:0.75}
 .film-card h4{font-family:'Noto Serif KR',serif;font-size:1rem;font-weight:400;color:var(--text-primary);margin-bottom:0.4rem}
-.film-card-role{font-size:0.78rem;color:var(--text-muted);margin-bottom:0.3rem}
-.film-card-note{font-size:0.72rem;color:rgba(201,169,110,0.6);letter-spacing:0.05em}
+.film-card-role{font-size:0.78rem;color:var(--text-muted)}
+.film-card-note{font-size:0.72rem;color:rgba(201,169,110,0.6);margin-top:0.3rem}
 
-/* AD GRID */
 .ad-sec{background:var(--dark-mid)}
 .ad-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0.8rem}
 .ad-item{background:var(--dark-surface);border:1px solid var(--border);padding:1rem 1.2rem;font-size:0.8rem;color:var(--text-muted);text-align:center;transition:all 0.3s;cursor:default;line-height:1.5}
 .ad-item:hover{border-color:rgba(201,169,110,0.4);color:var(--text-primary)}
 .ad-item .brand{font-family:'Noto Serif KR',serif;font-size:0.9rem;color:var(--text-primary);display:block;margin-bottom:0.2rem}
 
-/* GALLERY */
 .gallery-sec{background:var(--dark)}
 .gal-tabs{display:flex;gap:2rem;margin-bottom:2.5rem;border-bottom:1px solid var(--border);padding-bottom:1.4rem;flex-wrap:wrap}
 .gtab{font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);background:none;border:none;cursor:pointer;padding:0.25rem 0;position:relative;transition:color 0.3s}
@@ -119,7 +106,6 @@ section{padding:6rem 4rem}
 .gi:hover .gi-ov{opacity:1}
 .gi-lbl{font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold)}
 
-/* LIGHTBOX */
 .lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.93);z-index:999;align-items:center;justify-content:center}
 .lb.show{display:flex}
 .lb img{max-height:88vh;max-width:88vw;object-fit:contain}
@@ -129,17 +115,15 @@ section{padding:6rem 4rem}
 .lb-prev{left:0.5rem}.lb-next{right:0.5rem}
 .lb-prev:hover,.lb-next:hover{opacity:1}
 
-/* QUOTE */
 .quote-sec{background:var(--dark-surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:4.5rem 8rem;text-align:center;position:relative;overflow:hidden}
 .quote-sec::before{content:'"';position:absolute;top:-3rem;left:50%;transform:translateX(-50%);font-family:'Cormorant Garamond',serif;font-size:18rem;color:var(--gold);opacity:0.03;line-height:1;pointer-events:none}
 .quote-txt{font-family:'Noto Serif KR',serif;font-size:clamp(1.05rem,2vw,1.55rem);font-weight:300;line-height:1.95;color:var(--text-primary);max-width:660px;margin:0 auto 1.5rem;word-break:keep-all}
 .quote-by{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.88rem;color:var(--gold);letter-spacing:0.15em}
 
-/* CONTACT */
 .contact-sec{background:var(--dark-mid);text-align:center;padding:7rem 4rem}
 .contact-sec .sec-hd{justify-content:center;flex-direction:column;gap:0.8rem}
 .contact-sub{font-size:0.88rem;color:var(--text-muted);max-width:440px;margin:0 auto 3.5rem;line-height:2;word-break:keep-all}
-.cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;max-width:780px;margin:0 auto 3rem;border:1px solid var(--border)}
+.cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;max-width:780px;margin:0 auto;border:1px solid var(--border)}
 .cc{padding:2.2rem 1.8rem;background:var(--dark-surface);transition:background 0.3s}
 .cc:hover{background:#202020}
 .cc-icon{font-family:'Cormorant Garamond',serif;font-size:1.7rem;color:var(--gold);margin-bottom:0.7rem;opacity:0.65}
@@ -155,31 +139,9 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:1.8rem 
 .fade{opacity:0;transform:translateY(18px);transition:opacity 0.65s ease,transform 0.65s ease}
 .fade.in{opacity:1;transform:translateY(0)}
 
-@media(max-width:1024px){
-  .stats{grid-template-columns:repeat(3,1fr)}
-  .film-grid{grid-template-columns:1fr}
-  .ad-grid{grid-template-columns:repeat(3,1fr)}
-}
-@media(max-width:960px){
-  nav{padding:1.2rem 2rem}
-  .nav-links{display:none}
-  .hero{grid-template-columns:1fr}
-  .hero-img-wrap{height:50vh}
-  .hero-content{padding:3rem 2rem}
-  section{padding:4rem 2rem}
-  .stats{grid-template-columns:repeat(2,1fr);padding:2rem}
-  .about-grid{grid-template-columns:1fr}
-  .img-stack{height:300px}
-  .masonry{columns:2}
-  .cgrid{grid-template-columns:1fr}
-  .quote-sec{padding:3.5rem 2rem}
-  footer{flex-direction:column;gap:0.8rem;text-align:center}
-  .ad-grid{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:560px){
-  .masonry{columns:1}
-  .ad-grid{grid-template-columns:repeat(2,1fr)}
-}
+@media(max-width:1024px){.stats{grid-template-columns:repeat(3,1fr)}.film-grid{grid-template-columns:1fr}.ad-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:960px){nav{padding:1.2rem 2rem}.nav-links{display:none}.hero{grid-template-columns:1fr}.hero-img-wrap{height:50vh}.hero-content{padding:3rem 2rem}section{padding:4rem 2rem}.stats{grid-template-columns:repeat(2,1fr);padding:2rem}.about-grid{grid-template-columns:1fr}.img-stack{height:300px}.masonry{columns:2}.cgrid{grid-template-columns:1fr}.quote-sec{padding:3.5rem 2rem}footer{flex-direction:column;gap:0.8rem;text-align:center}.ad-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.masonry{columns:1}.ad-grid{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 <body>
@@ -198,7 +160,7 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:1.8rem 
 <!-- HERO -->
 <div class="hero">
   <div class="hero-img-wrap">
-    <img src="https://i.ibb.co/QjXgrccK/Kakao-Talk-20260421-104424469-29.jpg" alt="배우 양광규">
+    <img src="https://i.ibb.co/GQxKL1sG/Kakao-Talk-20260421-104424469-29.jpg" alt="배우 양광규">
     <div class="hero-img-fade"></div>
   </div>
   <div class="hero-content">
@@ -208,11 +170,11 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:1.8rem 
     <span class="hero-name-en">Yang Gwang-gyu</span>
     <div class="hero-specs">
       <div class="hero-spec-row">
-        <span>1963년생</span><div class="hero-spec-divider"></div>
+        <span>1963년생</span><div class="hero-spec-div"></div>
         <span>활동나이 <span class="val">50 — 60대</span></span>
       </div>
       <div class="hero-spec-row">
-        <span>키 <span class="val">178 cm</span></span><div class="hero-spec-divider"></div>
+        <span>키 <span class="val">178 cm</span></span><div class="hero-spec-div"></div>
         <span>체중 <span class="val">73 kg</span></span>
       </div>
     </div>
@@ -233,53 +195,24 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:1.8rem 
 
 <!-- ABOUT -->
 <section id="about" class="about-sec">
-  <div class="sec-hd">
-    <span class="sec-eye">Profile</span>
-    <h2 class="sec-title">배우 소개</h2>
-    <div class="sec-line"></div>
-  </div>
+  <div class="sec-hd"><span class="sec-eye">Profile</span><h2 class="sec-title">배우 소개</h2><div class="sec-line"></div></div>
   <div class="about-grid">
     <div class="img-stack fade">
       <div class="gold-bar"></div>
-      <img class="img-main" src="https://i.ibb.co/q3kYDj2K/Kakao-Talk-20260421-104424469.jpg" alt="양광규 프로필">
-      <img class="img-accent" src="https://i.ibb.co/b5VF0YBz/Kakao-Talk-20260421-104424469-19.jpg" alt="양광규 야외">
+      <img class="img-main" src="https://i.ibb.co/HTBrT2f7/Kakao-Talk-20260421-104424469.jpg" alt="양광규">
+      <img class="img-accent" src="https://i.ibb.co/YFm6Bvs7/Kakao-Talk-20260421-104424469-19.jpg" alt="양광규 야외">
     </div>
     <div class="about-text fade">
       <h3>카메라가 사랑하는 시니어 배우</h3>
       <p>20년 강의 경력에서 쌓아온 자연스러운 카메라 친화력과 표현력은 어떤 역할도 설득력 있게 소화하는 밑바탕이 됩니다. Netflix 드라마부터 장편영화, 웹드라마, 그리고 20여 개 이상의 브랜드 광고까지, 다양한 현장에서 검증된 베테랑입니다.</p>
       <p>신뢰감 있는 신사, 여유로운 중년 전문가, 인간적인 아버지상까지 — 삶의 깊이가 녹아든 연기로 시청자와 브랜드 모두에게 진정성을 전달합니다.</p>
-
       <table class="profile-table">
-        <tr>
-          <td>출생</td>
-          <td>1963년생 · 활동 나이 50~60대</td>
-        </tr>
-        <tr>
-          <td>신체</td>
-          <td>178 cm / 73 kg</td>
-        </tr>
-        <tr>
-          <td>사이즈</td>
-          <td>상의 105 · 하의 33 · 신발 270</td>
-        </tr>
-        <tr>
-          <td>특기</td>
-          <td>
-            <div class="tags">
-              <span class="tag hi">골프 30년</span>
-              <span class="tag hi">강의 경력 20년</span>
-              <span class="tag hi">스키 10년</span>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>장점</td>
-          <td>오랜 강의 경험으로 카메라에 익숙하며 자연스러운 현장 적응력 보유</td>
-        </tr>
-        <tr>
-          <td>연락처</td>
-          <td>010-9109-6596 · eagley@naver.com</td>
-        </tr>
+        <tr><td>출생</td><td>1963년생 · 활동 나이 50~60대</td></tr>
+        <tr><td>신체</td><td>178 cm / 73 kg</td></tr>
+        <tr><td>사이즈</td><td>상의 105 · 하의 33 · 신발 270</td></tr>
+        <tr><td>특기</td><td><div class="tags"><span class="tag hi">골프 30년</span><span class="tag hi">강의 경력 20년</span><span class="tag hi">스키 10년</span></div></td></tr>
+        <tr><td>장점</td><td>오랜 강의 경험으로 카메라에 익숙하며 자연스러운 현장 적응력 보유</td></tr>
+        <tr><td>연락처</td><td>010-9109-6596 · eagley@naver.com</td></tr>
       </table>
     </div>
   </div>
@@ -293,11 +226,7 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:1.8rem 
 
 <!-- FILMOGRAPHY -->
 <section id="filmography" class="film-sec">
-  <div class="sec-hd">
-    <span class="sec-eye">Works</span>
-    <h2 class="sec-title">영화 · 드라마 출연작</h2>
-    <div class="sec-line"></div>
-  </div>
+  <div class="sec-hd"><span class="sec-eye">Works</span><h2 class="sec-title">영화 · 드라마 출연작</h2><div class="sec-line"></div></div>
   <div class="film-tabs">
     <button class="ftab on" data-fcat="all">전체</button>
     <button class="ftab" data-fcat="netflix">Netflix</button>
@@ -305,79 +234,63 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:1.8rem 
     <button class="ftab" data-fcat="movie">영화</button>
   </div>
   <div class="film-grid" id="film-grid">
-
     <div class="film-card fade" data-fcat="netflix">
       <div class="film-card-type">Netflix · 드라마</div>
       <h4>천천히 강렬하게</h4>
       <div class="film-card-role">시장 상인 역</div>
       <div class="film-card-note">Netflix 오리지널 드라마</div>
     </div>
-
     <div class="film-card fade" data-fcat="webdrama">
       <div class="film-card-type">웹드라마 · 주연</div>
       <h4>미래에서 온 편지</h4>
       <div class="film-card-role">노인 역 (주연)</div>
-      <div class="film-card-note">주연작</div>
     </div>
-
     <div class="film-card fade" data-fcat="webdrama">
       <div class="film-card-type">웹드라마</div>
       <h4>할세상</h4>
       <div class="film-card-role">은퇴자 역</div>
     </div>
-
     <div class="film-card fade" data-fcat="webdrama">
       <div class="film-card-type">웹드라마</div>
       <h4>부모님 연구소</h4>
       <div class="film-card-role">전문가 역</div>
     </div>
-
     <div class="film-card fade" data-fcat="webdrama">
       <div class="film-card-type">웹드라마</div>
       <h4>킥서비스</h4>
       <div class="film-card-role">성인 학생 역</div>
     </div>
-
     <div class="film-card fade" data-fcat="movie">
       <div class="film-card-type">장편영화</div>
       <h4>레슨</h4>
       <div class="film-card-role">공원 신사 역</div>
     </div>
-
     <div class="film-card fade" data-fcat="movie">
       <div class="film-card-type">장편영화</div>
       <h4>타이고</h4>
       <div class="film-card-role">정치인 역</div>
     </div>
-
     <div class="film-card fade" data-fcat="movie">
       <div class="film-card-type">장편영화</div>
       <h4>순간의 사라</h4>
       <div class="film-card-role">중년 손님 역</div>
     </div>
-
     <div class="film-card fade" data-fcat="movie">
       <div class="film-card-type">장편영화</div>
       <h4>수면 위에 두 사람</h4>
       <div class="film-card-role">전시관 관객 역</div>
     </div>
-
     <div class="film-card fade" data-fcat="movie">
       <div class="film-card-type">단편영화</div>
       <h4>연기자</h4>
       <div class="film-card-role">관객 역</div>
     </div>
-
   </div>
 </section>
 
-<!-- AD SECTION -->
+<!-- ADS -->
 <section id="ads" class="ad-sec">
-  <div class="sec-hd">
-    <span class="sec-eye">Ads</span>
-    <h2 class="sec-title">광고 · CF 출연</h2>
-    <div class="sec-line"></div>
-  </div>
+  <div class="sec-hd"><span class="sec-eye">Ads</span><h2 class="sec-title">광고 · CF 출연</h2><div class="sec-line"></div></div>
   <div class="ad-grid">
     <div class="ad-item fade"><span class="brand">국민연금</span>공공기관</div>
     <div class="ad-item fade"><span class="brand">LG전자</span>가전</div>
@@ -403,11 +316,7 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:1.8rem 
 
 <!-- GALLERY -->
 <section id="gallery" class="gallery-sec">
-  <div class="sec-hd">
-    <span class="sec-eye">Gallery</span>
-    <h2 class="sec-title">포토 갤러리</h2>
-    <div class="sec-line"></div>
-  </div>
+  <div class="sec-hd"><span class="sec-eye">Gallery</span><h2 class="sec-title">포토 갤러리</h2><div class="sec-line"></div></div>
   <div class="gal-tabs">
     <button class="gtab on" data-cat="all">전체 (30)</button>
     <button class="gtab" data-cat="formal">공식 프로필</button>
@@ -415,63 +324,52 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:1.8rem 
     <button class="gtab" data-cat="casual">캐주얼</button>
     <button class="gtab" data-cat="outdoor">아웃도어</button>
   </div>
-  <div class="masonry" id="gallery-grid">
-    <div class="gi fade" data-cat="formal"><img src="https://i.ibb.co/QjXgrccK/Kakao-Talk-20260421-104424469-29.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">공식 프로필</span></div></div>
-    <div class="gi fade" data-cat="formal"><img src="https://i.ibb.co/6RfCQHty/Kakao-Talk-20260421-104424469-20.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">공식 프로필</span></div></div>
-    <div class="gi fade" data-cat="formal"><img src="https://i.ibb.co/96vG2Pf/Kakao-Talk-20260421-104424469-21.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">공식 프로필</span></div></div>
-    <div class="gi fade" data-cat="formal"><img src="https://i.ibb.co/Zz83NHGT/Kakao-Talk-20260421-104424469-22.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">공식 프로필</span></div></div>
-    <div class="gi fade" data-cat="formal"><img src="https://i.ibb.co/cSFLG8HV/Kakao-Talk-20260421-104424469-23.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">공식 프로필</span></div></div>
-    <div class="gi fade" data-cat="formal"><img src="https://i.ibb.co/Psmyks4V/Kakao-Talk-20260421-104424469-24.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">공식 프로필</span></div></div>
-    <div class="gi fade" data-cat="business"><img src="https://i.ibb.co/q3kYDj2K/Kakao-Talk-20260421-104424469.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">비즈니스</span></div></div>
-    <div class="gi fade" data-cat="business"><img src="https://i.ibb.co/5hfHg73h/Kakao-Talk-20260421-104424469-01.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">비즈니스</span></div></div>
-    <div class="gi fade" data-cat="business"><img src="https://i.ibb.co/F4k95fLN/Kakao-Talk-20260421-104424469-06.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">비즈니스</span></div></div>
-    <div class="gi fade" data-cat="business"><img src="https://i.ibb.co/C3pWYcZt/Kakao-Talk-20260421-104424469-07.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">비즈니스</span></div></div>
-    <div class="gi fade" data-cat="business"><img src="https://i.ibb.co/xKmf8g0H/Kakao-Talk-20260421-104424469-08.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">비즈니스</span></div></div>
-    <div class="gi fade" data-cat="business"><img src="https://i.ibb.co/HTFLFDDw/Kakao-Talk-20260421-104424469-09.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">비즈니스</span></div></div>
-    <div class="gi fade" data-cat="business"><img src="https://i.ibb.co/nM92G718/Kakao-Talk-20260421-104424469-16.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">비즈니스</span></div></div>
-    <div class="gi fade" data-cat="business"><img src="https://i.ibb.co/MyKWQhH9/Kakao-Talk-20260421-104424469-17.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">비즈니스</span></div></div>
-    <div class="gi fade" data-cat="casual"><img src="https://i.ibb.co/RkZ7JxvX/Kakao-Talk-20260421-104424469-02.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">럭셔리 캐주얼</span></div></div>
-    <div class="gi fade" data-cat="casual"><img src="https://i.ibb.co/BKzH9HcJ/Kakao-Talk-20260421-104424469-03.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">세미 캐주얼</span></div></div>
-    <div class="gi fade" data-cat="casual"><img src="https://i.ibb.co/HLq4v2yt/Kakao-Talk-20260421-104424469-04.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">캐주얼</span></div></div>
-    <div class="gi fade" data-cat="casual"><img src="https://i.ibb.co/C5dDSWqP/Kakao-Talk-20260421-104424469-05.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">캐주얼</span></div></div>
-    <div class="gi fade" data-cat="casual"><img src="https://i.ibb.co/x87jDbGc/Kakao-Talk-20260421-104424469-10.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">캐주얼</span></div></div>
-    <div class="gi fade" data-cat="casual"><img src="https://i.ibb.co/JjLGbQr9/Kakao-Talk-20260421-104424469-11.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">캐주얼</span></div></div>
-    <div class="gi fade" data-cat="casual"><img src="https://i.ibb.co/gLvTw7HS/Kakao-Talk-20260421-104424469-12.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">세미 캐주얼</span></div></div>
-    <div class="gi fade" data-cat="casual"><img src="https://i.ibb.co/V04ksPdr/Kakao-Talk-20260421-104424469-13.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">캐주얼</span></div></div>
-    <div class="gi fade" data-cat="casual"><img src="https://i.ibb.co/WWx48WSB/Kakao-Talk-20260421-104424469-14.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">캐주얼</span></div></div>
-    <div class="gi fade" data-cat="casual"><img src="https://i.ibb.co/21cyR66J/Kakao-Talk-20260421-104424469-15.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">캐주얼</span></div></div>
-    <div class="gi fade" data-cat="casual"><img src="https://i.ibb.co/vCQWsM2d/Kakao-Talk-20260421-104424469-25.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">캐주얼</span></div></div>
-    <div class="gi fade" data-cat="casual"><img src="https://i.ibb.co/BHnfpC91/Kakao-Talk-20260421-104424469-26.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">캐주얼</span></div></div>
-    <div class="gi fade" data-cat="casual"><img src="https://i.ibb.co/nqNyBDY9/Kakao-Talk-20260421-104424469-27.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">캐주얼</span></div></div>
-    <div class="gi fade" data-cat="casual"><img src="https://i.ibb.co/8gg856Yk/Kakao-Talk-20260421-104424469-28.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">캐주얼</span></div></div>
-    <div class="gi fade" data-cat="outdoor"><img src="https://i.ibb.co/bnBGDsf/Kakao-Talk-20260421-104424469-18.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">아웃도어</span></div></div>
-    <div class="gi fade" data-cat="outdoor"><img src="https://i.ibb.co/b5VF0YBz/Kakao-Talk-20260421-104424469-19.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">아웃도어</span></div></div>
+  <div class="masonry">
+    <!-- 공식 프로필 -->
+    <div class="gi fade" data-cat="formal"><img src="https://i.ibb.co/GQxKL1sG/Kakao-Talk-20260421-104424469-29.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">공식 프로필</span></div></div>
+    <div class="gi fade" data-cat="formal"><img src="https://i.ibb.co/HfVX5g54/Kakao-Talk-20260421-104424469-20.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">공식 프로필</span></div></div>
+    <div class="gi fade" data-cat="formal"><img src="https://i.ibb.co/hRhttWRx/Kakao-Talk-20260421-104424469-21.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">공식 프로필</span></div></div>
+    <div class="gi fade" data-cat="formal"><img src="https://i.ibb.co/yFydhCtH/Kakao-Talk-20260421-104424469-22.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">공식 프로필</span></div></div>
+    <div class="gi fade" data-cat="formal"><img src="https://i.ibb.co/YqWd125/Kakao-Talk-20260421-104424469-23.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">공식 프로필</span></div></div>
+    <div class="gi fade" data-cat="formal"><img src="https://i.ibb.co/x8zrMyFQ/Kakao-Talk-20260421-104424469-24.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">공식 프로필</span></div></div>
+    <!-- 비즈니스 -->
+    <div class="gi fade" data-cat="business"><img src="https://i.ibb.co/HTBrT2f7/Kakao-Talk-20260421-104424469.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">비즈니스</span></div></div>
+    <div class="gi fade" data-cat="business"><img src="https://i.ibb.co/Y4D0Sg74/Kakao-Talk-20260421-104424469-01.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">비즈니스</span></div></div>
+    <div class="gi fade" data-cat="business"><img src="https://i.ibb.co/20bRj0Z8/Kakao-Talk-20260421-104424469-06.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">비즈니스</span></div></div>
+    <div class="gi fade" data-cat="business"><img src="https://i.ibb.co/gLxxwt5L/Kakao-Talk-20260421-104424469-07.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">비즈니스</span></div></div>
+    <div class="gi fade" data-cat="business"><img src="https://i.ibb.co/XZkzWqLy/Kakao-Talk-20260421-104424469-08.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">비즈니스</span></div></div>
+    <div class="gi fade" data-cat="business"><img src="https://i.ibb.co/mF1wsfgy/Kakao-Talk-20260421-104424469-09.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">비즈니스</span></div></div>
+    <div class="gi fade" data-cat="business"><img src="https://i.ibb.co/wZR1n0CQ/Kakao-Talk-20260421-104424469-16.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">비즈니스</span></div></div>
+    <div class="gi fade" data-cat="business"><img src="https://i.ibb.co/7t3WZv6Q/Kakao-Talk-20260421-104424469-17.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">비즈니스</span></div></div>
+    <!-- 캐주얼 -->
+    <div class="gi fade" data-cat="casual"><img src="https://i.ibb.co/5gqx7LNc/Kakao-Talk-20260421-104424469-02.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">럭셔리 캐주얼</span></div></div>
+    <div class="gi fade" data-cat="casual"><img src="https://i.ibb.co/7xZ9QtQ3/Kakao-Talk-20260421-104424469-03.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">세미 캐주얼</span></div></div>
+    <div class="gi fade" data-cat="casual"><img src="https://i.ibb.co/QFnH7ns0/Kakao-Talk-20260421-104424469-04.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">캐주얼</span></div></div>
+    <div class="gi fade" data-cat="casual"><img src="https://i.ibb.co/YBGcbmKv/Kakao-Talk-20260421-104424469-05.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">캐주얼</span></div></div>
+    <div class="gi fade" data-cat="casual"><img src="https://i.ibb.co/8ggfyPk1/Kakao-Talk-20260421-104424469-10.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">캐주얼</span></div></div>
+    <div class="gi fade" data-cat="casual"><img src="https://i.ibb.co/Kx6gYjVn/Kakao-Talk-20260421-104424469-11.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">캐주얼</span></div></div>
+    <div class="gi fade" data-cat="casual"><img src="https://i.ibb.co/qLHpWzms/Kakao-Talk-20260421-104424469-12.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">세미 캐주얼</span></div></div>
+    <div class="gi fade" data-cat="casual"><img src="https://i.ibb.co/Rp7FrTbX/Kakao-Talk-20260421-104424469-13.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">캐주얼</span></div></div>
+    <div class="gi fade" data-cat="casual"><img src="https://i.ibb.co/tPszzKzN/Kakao-Talk-20260421-104424469-14.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">캐주얼</span></div></div>
+    <div class="gi fade" data-cat="casual"><img src="https://i.ibb.co/Z68ZnSMZ/Kakao-Talk-20260421-104424469-15.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">캐주얼</span></div></div>
+    <div class="gi fade" data-cat="casual"><img src="https://i.ibb.co/V43w8mF/Kakao-Talk-20260421-104424469-25.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">캐주얼</span></div></div>
+    <div class="gi fade" data-cat="casual"><img src="https://i.ibb.co/1Y0NnGPy/Kakao-Talk-20260421-104424469-26.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">캐주얼</span></div></div>
+    <div class="gi fade" data-cat="casual"><img src="https://i.ibb.co/C5f6DBQ6/Kakao-Talk-20260421-104424469-27.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">캐주얼</span></div></div>
+    <div class="gi fade" data-cat="casual"><img src="https://i.ibb.co/C3C37gtJ/Kakao-Talk-20260421-104424469-28.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">캐주얼</span></div></div>
+    <!-- 아웃도어 -->
+    <div class="gi fade" data-cat="outdoor"><img src="https://i.ibb.co/GQKQpGd4/Kakao-Talk-20260421-104424469-18.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">아웃도어</span></div></div>
+    <div class="gi fade" data-cat="outdoor"><img src="https://i.ibb.co/YFm6Bvs7/Kakao-Talk-20260421-104424469-19.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">아웃도어</span></div></div>
   </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact" class="contact-sec">
-  <div class="sec-hd">
-    <span class="sec-eye">Contact</span>
-    <h2 class="sec-title">캐스팅 및 문의</h2>
-  </div>
+  <div class="sec-hd"><span class="sec-eye">Contact</span><h2 class="sec-title">캐스팅 및 문의</h2></div>
   <p class="contact-sub">드라마, 영화, 광고, 기업 홍보영상 등<br>다양한 프로젝트의 캐스팅 제안과 문의를 기다립니다.</p>
   <div class="cgrid">
-    <div class="cc fade">
-      <div class="cc-icon">☎</div>
-      <h4>전화</h4>
-      <p><a href="tel:01091096596">010-9109-6596</a></p>
-    </div>
-    <div class="cc fade">
-      <div class="cc-icon">✉</div>
-      <h4>이메일</h4>
-      <p><a href="mailto:eagley@naver.com">eagley@naver.com</a></p>
-    </div>
-    <div class="cc fade">
-      <div class="cc-icon">◈</div>
-      <h4>활동 나이대</h4>
-      <p>50대 · 60대</p>
-    </div>
+    <div class="cc fade"><div class="cc-icon">☎</div><h4>전화</h4><p><a href="tel:01091096596">010-9109-6596</a></p></div>
+    <div class="cc fade"><div class="cc-icon">✉</div><h4>이메일</h4><p><a href="mailto:eagley@naver.com">eagley@naver.com</a></p></div>
+    <div class="cc fade"><div class="cc-icon">◈</div><h4>활동 나이대</h4><p>50대 · 60대</p></div>
   </div>
 </section>
 
@@ -489,60 +387,49 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:1.8rem 
 </div>
 
 <script>
-// Fade in
-const io = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('in'); }), {threshold:0.07});
-document.querySelectorAll('.fade').forEach(el => io.observe(el));
+const io = new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in')}),{threshold:0.07});
+document.querySelectorAll('.fade').forEach(el=>io.observe(el));
 
-// Gallery tabs
-const gtabs = document.querySelectorAll('.gtab');
-const gitems = document.querySelectorAll('.gi');
-gtabs.forEach(tab => {
-  tab.addEventListener('click', () => {
-    gtabs.forEach(t => t.classList.remove('on'));
+document.querySelectorAll('.gtab').forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    document.querySelectorAll('.gtab').forEach(t=>t.classList.remove('on'));
     tab.classList.add('on');
-    const cat = tab.dataset.cat;
-    gitems.forEach(item => { item.style.display = (cat==='all'||item.dataset.cat===cat) ? 'block' : 'none'; });
+    const cat=tab.dataset.cat;
+    document.querySelectorAll('.gi').forEach(item=>{item.style.display=(cat==='all'||item.dataset.cat===cat)?'block':'none';});
   });
 });
 
-// Film tabs
-const ftabs = document.querySelectorAll('.ftab');
-const fcards = document.querySelectorAll('.film-card');
-ftabs.forEach(tab => {
-  tab.addEventListener('click', () => {
-    ftabs.forEach(t => t.classList.remove('on'));
+document.querySelectorAll('.ftab').forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    document.querySelectorAll('.ftab').forEach(t=>t.classList.remove('on'));
     tab.classList.add('on');
-    const cat = tab.dataset.fcat;
-    fcards.forEach(card => { card.style.display = (cat==='all'||card.dataset.fcat===cat) ? 'block' : 'none'; });
+    const cat=tab.dataset.fcat;
+    document.querySelectorAll('.film-card').forEach(card=>{card.style.display=(cat==='all'||card.dataset.fcat===cat)?'block':'none';});
   });
 });
 
-// Lightbox
-const lb = document.getElementById('lb');
-const lbImg = document.getElementById('lb-img');
-let imgs=[], cur=0;
-function getVisibleImgs(){ return [...document.querySelectorAll('.gi:not([style*="none"]) img')].map(i=>i.src); }
-
-gitems.forEach(item => {
-  item.addEventListener('click', () => {
-    imgs = getVisibleImgs();
-    const src = item.querySelector('img').src;
-    cur = imgs.indexOf(src);
-    lbImg.src = src;
+const lb=document.getElementById('lb'),lbImg=document.getElementById('lb-img');
+let imgs=[],cur=0;
+function getImgs(){return[...document.querySelectorAll('.gi:not([style*="none"]) img')].map(i=>i.src);}
+document.querySelectorAll('.gi').forEach(item=>{
+  item.addEventListener('click',()=>{
+    imgs=getImgs();
+    const src=item.querySelector('img').src;
+    cur=imgs.indexOf(src);
+    lbImg.src=src;
     lb.classList.add('show');
     document.body.style.overflow='hidden';
   });
 });
-
-document.getElementById('lb-close').onclick = () => { lb.classList.remove('show'); document.body.style.overflow=''; };
-lb.addEventListener('click', e => { if(e.target===lb){ lb.classList.remove('show'); document.body.style.overflow=''; }});
-document.getElementById('lb-prev').onclick = () => { cur=(cur-1+imgs.length)%imgs.length; lbImg.src=imgs[cur]; };
-document.getElementById('lb-next').onclick = () => { cur=(cur+1)%imgs.length; lbImg.src=imgs[cur]; };
-document.addEventListener('keydown', e => {
-  if(!lb.classList.contains('show')) return;
-  if(e.key==='ArrowLeft'){ cur=(cur-1+imgs.length)%imgs.length; lbImg.src=imgs[cur]; }
-  if(e.key==='ArrowRight'){ cur=(cur+1)%imgs.length; lbImg.src=imgs[cur]; }
-  if(e.key==='Escape'){ lb.classList.remove('show'); document.body.style.overflow=''; }
+document.getElementById('lb-close').onclick=()=>{lb.classList.remove('show');document.body.style.overflow='';};
+lb.addEventListener('click',e=>{if(e.target===lb){lb.classList.remove('show');document.body.style.overflow='';}});
+document.getElementById('lb-prev').onclick=()=>{cur=(cur-1+imgs.length)%imgs.length;lbImg.src=imgs[cur];};
+document.getElementById('lb-next').onclick=()=>{cur=(cur+1)%imgs.length;lbImg.src=imgs[cur];};
+document.addEventListener('keydown',e=>{
+  if(!lb.classList.contains('show'))return;
+  if(e.key==='ArrowLeft'){cur=(cur-1+imgs.length)%imgs.length;lbImg.src=imgs[cur];}
+  if(e.key==='ArrowRight'){cur=(cur+1)%imgs.length;lbImg.src=imgs[cur];}
+  if(e.key==='Escape'){lb.classList.remove('show');document.body.style.overflow='';}
 });
 </script>
 </body>
