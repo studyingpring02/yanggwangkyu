@@ -4,433 +4,1319 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>배우 양광규 공식 포트폴리오</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600&family=Noto+Sans+KR:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --gold:#C9A96E;--dark:#0A0A0A;--dark-mid:#141414;--dark-surface:#1C1C1C;
-  --text-primary:#F5F0E8;--text-muted:#8A8070;--border:rgba(201,169,110,0.2);
+:root {
+  --gold: #c9a84c;
+  --gold-light: #d4b668;
+  --gold-pale: #e8d49a;
+  --accent: #a8893a;
+  --accent2: #7a6228;
+  --dark: #111009;
+  --dark2: #181610;
+  --dark3: #1f1d14;
+  --gray: #7a7568;
+  --gray-light: #b0a898;
+  --white: #f5f0e8;
+  --edit-blue: #2563eb;
+  --edit-blue-light: #dbeafe;
 }
-html{scroll-behavior:smooth}
-body{background:var(--dark);color:var(--text-primary);font-family:'Noto Sans KR',sans-serif;font-weight:300;overflow-x:hidden}
 
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.4rem 4rem;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(to bottom,rgba(10,10,10,0.96),transparent);backdrop-filter:blur(4px)}
-.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:300;letter-spacing:0.35em;color:var(--gold);text-transform:uppercase;text-decoration:none}
-.nav-links{display:flex;gap:2.5rem;list-style:none}
-.nav-links a{font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;transition:color 0.3s}
-.nav-links a:hover{color:var(--gold)}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--dark); color: #ede8de; font-family: 'Noto Sans KR', sans-serif; overflow-x: hidden; }
 
-.hero{height:100vh;display:grid;grid-template-columns:55% 45%;position:relative;overflow:hidden}
-.hero-img-wrap{position:relative;overflow:hidden}
-.hero-img-wrap img{width:100%;height:100%;object-fit:cover;object-position:center top;filter:grayscale(15%) contrast(1.05);transition:transform 8s ease}
-.hero-img-wrap:hover img{transform:scale(1.03)}
-.hero-img-fade{position:absolute;inset:0;background:linear-gradient(to right,transparent 55%,var(--dark) 100%)}
-.hero-content{display:flex;flex-direction:column;justify-content:center;padding:6rem 4rem 6rem 2rem;position:relative}
-.hero-eyebrow{font-family:'Cormorant Garamond',serif;font-size:0.8rem;letter-spacing:0.45em;color:var(--gold);text-transform:uppercase;margin-bottom:1.8rem;opacity:0.8}
-.hero-name{font-family:'Noto Serif KR',serif;font-size:clamp(3.2rem,6vw,5.5rem);font-weight:300;line-height:1.1;margin-bottom:0.3em;letter-spacing:0.1em}
-.hero-name-en{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.3rem,2.2vw,2rem);font-weight:300;color:var(--gold);letter-spacing:0.12em;margin-bottom:1.5rem;display:block}
-.hero-specs{display:flex;flex-direction:column;gap:0.5rem;margin-bottom:2rem}
-.hero-spec-row{font-size:0.8rem;color:var(--text-muted);letter-spacing:0.05em;display:flex;gap:1rem;align-items:center}
-.hero-spec-row .val{color:var(--text-primary);font-weight:400}
-.hero-spec-div{width:1px;height:14px;background:var(--border)}
-.hero-desc{font-size:0.88rem;line-height:2;color:var(--text-muted);max-width:360px;margin-bottom:2.5rem;letter-spacing:0.03em;word-break:keep-all}
-.hero-cta{display:inline-flex;align-items:center;gap:0.9rem;font-size:0.72rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);text-decoration:none;padding-bottom:0.3rem;border-bottom:1px solid var(--gold);transition:gap 0.3s}
-.hero-cta:hover{gap:1.4rem}
-.hero-cta::after{content:'→';font-size:1rem}
-.vline{position:absolute;left:0;top:50%;transform:translateY(-50%);width:1px;height:35%;background:linear-gradient(to bottom,transparent,var(--gold),transparent);opacity:0.35}
-.scroll-ind{position:absolute;bottom:2.5rem;right:2.5rem;display:flex;flex-direction:column;align-items:center;gap:0.7rem;opacity:0.38}
-.scroll-ind span{font-size:0.6rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);writing-mode:vertical-rl;transform:rotate(180deg)}
-.scroll-line{width:1px;height:55px;background:linear-gradient(to bottom,var(--gold),transparent);animation:sp 2.2s infinite}
-@keyframes sp{0%{transform:scaleY(0);transform-origin:top;opacity:1}50%{transform:scaleY(1);transform-origin:top;opacity:1}100%{transform:scaleY(1);opacity:0}}
+/* ─── ADMIN OVERLAY ─── */
+#admin-bar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+  background: #1e3a5f; padding: 10px 20px;
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.5);
+  display: none;
+}
+#admin-bar.visible { display: flex; }
+.admin-label { color: #93c5fd; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-right: 4px; }
+.admin-btn {
+  padding: 6px 14px; border-radius: 6px; border: none; cursor: pointer;
+  font-size: 13px; font-weight: 500; font-family: 'Noto Sans KR', sans-serif;
+  transition: all 0.2s;
+}
+.admin-btn.save { background: #16a34a; color: white; }
+.admin-btn.save:hover { background: #15803d; }
+.admin-btn.export { background: #d97706; color: white; }
+.admin-btn.export:hover { background: #b45309; }
+.admin-btn.exit { background: #dc2626; color: white; margin-left: auto; }
+.admin-btn.exit:hover { background: #b91c1c; }
+.admin-btn.add { background: var(--edit-blue); color: white; }
+.admin-btn.add:hover { background: #1d4ed8; }
+#save-status { color: #86efac; font-size: 12px; }
+#admin-bar-spacer { height: 0; transition: height 0.3s; }
+#admin-bar-spacer.visible { height: 52px; }
 
-.stats{background:var(--dark-surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2.2rem 4rem;display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;text-align:center}
-.stat{position:relative}
-.stat:not(:last-child)::after{content:'';position:absolute;right:0;top:50%;transform:translateY(-50%);width:1px;height:55%;background:var(--border)}
-.snum{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:300;color:var(--gold);line-height:1;margin-bottom:0.3rem}
-.slbl{font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-muted)}
+/* ─── LOGIN MODAL ─── */
+#login-modal {
+  display: none; position: fixed; inset: 0; z-index: 10000;
+  background: rgba(0,0,0,0.85); align-items: center; justify-content: center;
+}
+#login-modal.open { display: flex; }
+.login-box {
+  background: #1a1a2e; border: 1px solid #374151;
+  border-radius: 16px; padding: 40px; width: 320px; text-align: center;
+}
+.login-box h3 { color: rgba(255,255,255,0.85); font-size: 18px; margin-bottom: 8px; font-family: 'Cormorant Garamond', serif; }
+.login-box p { color: #9ca3af; font-size: 13px; margin-bottom: 24px; }
+.login-box input {
+  width: 100%; padding: 12px 16px; border-radius: 8px;
+  border: 1px solid #374151; background: #111827; color: white;
+  font-size: 16px; margin-bottom: 16px; text-align: center; letter-spacing: 4px;
+}
+.login-box input:focus { outline: none; border-color: rgba(255,255,255,0.4); }
+.login-box button {
+  width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.08); color: white; font-size: 14px;
+  font-weight: 500; cursor: pointer; transition: background 0.2s;
+}
+.login-box button:hover { background: rgba(255,255,255,0.14); }
+#login-error { color: #f87171; font-size: 12px; margin-top: 8px; min-height: 18px; }
 
-section{padding:6rem 4rem}
-.sec-hd{display:flex;align-items:center;gap:1.8rem;margin-bottom:3.5rem}
-.sec-eye{font-family:'Cormorant Garamond',serif;font-size:0.75rem;letter-spacing:0.45em;color:var(--gold);text-transform:uppercase;writing-mode:vertical-rl;transform:rotate(180deg);opacity:0.65}
-.sec-title{font-family:'Noto Serif KR',serif;font-size:clamp(1.8rem,3vw,2.5rem);font-weight:300;line-height:1.2}
-.sec-line{flex:1;height:1px;background:linear-gradient(to right,var(--gold),transparent);opacity:0.28;margin-left:0.8rem}
+/* ─── EDIT MODE STYLES ─── */
+body.edit-mode [data-editable] {
+  outline: 2px dashed rgba(37,99,235,0.5);
+  border-radius: 4px; cursor: pointer;
+  transition: outline 0.15s;
+}
+body.edit-mode [data-editable]:hover {
+  outline: 2px solid var(--edit-blue);
+  background: rgba(37,99,235,0.05);
+}
+body.edit-mode [data-editable]:focus {
+  outline: 2px solid var(--edit-blue);
+  background: rgba(37,99,235,0.08);
+}
+.edit-img-wrap { position: relative; display: inline-block; }
+body.edit-mode .edit-img-wrap::after {
+  content: '📷 사진 교체';
+  position: absolute; inset: 0; background: rgba(37,99,235,0.7);
+  display: flex; align-items: center; justify-content: center;
+  color: white; font-size: 13px; font-weight: 600; border-radius: inherit;
+  opacity: 0; transition: opacity 0.2s; cursor: pointer;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+body.edit-mode .edit-img-wrap:hover::after { opacity: 1; }
 
-.about-sec{background:var(--dark-mid)}
-.about-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:5rem;align-items:start}
-.img-stack{position:relative;height:580px}
-.img-main{position:absolute;top:0;left:0;width:76%;height:86%;object-fit:cover;object-position:center top;filter:grayscale(12%)}
-.img-accent{position:absolute;bottom:0;right:0;width:48%;height:52%;object-fit:cover;object-position:center top;filter:grayscale(12%);border:3px solid var(--dark-mid)}
-.gold-bar{position:absolute;left:-1.8rem;top:2.5rem;width:4px;height:110px;background:linear-gradient(to bottom,var(--gold),transparent)}
-.about-text h3{font-family:'Noto Serif KR',serif;font-size:1.3rem;font-weight:300;color:var(--gold);margin-bottom:1.2rem}
-.about-text p{font-size:0.88rem;line-height:2.1;color:rgba(245,240,232,0.72);margin-bottom:1.2rem;word-break:keep-all}
-.profile-table{width:100%;border-collapse:collapse;margin:1.8rem 0}
-.profile-table tr{border-bottom:1px solid var(--border)}
-.profile-table td{padding:0.75rem 0;font-size:0.85rem;line-height:1.6}
-.profile-table td:first-child{width:90px;color:var(--text-muted);font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;vertical-align:top;padding-top:0.85rem}
-.tags{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.3rem}
-.tag{font-size:0.68rem;letter-spacing:0.1em;padding:0.35rem 0.85rem;border:1px solid var(--border);color:var(--text-muted);transition:all 0.3s;cursor:default}
-.tag:hover{border-color:var(--gold);color:var(--gold)}
-.tag.hi{border-color:rgba(201,169,110,0.4);color:var(--gold)}
+/* ─── EDITOR PANEL ─── */
+#editor-panel {
+  display: none; position: fixed; right: 0; top: 52px; bottom: 0; width: 360px; z-index: 9998;
+  background: #111827; border-left: 1px solid #374151; overflow-y: auto;
+  padding: 20px;
+}
+#editor-panel.open { display: block; }
+#editor-panel h4 { color: #93c5fd; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+#editor-panel textarea {
+  width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #374151;
+  background: #1f2937; color: white; font-size: 14px; resize: vertical;
+  min-height: 80px; font-family: 'Noto Sans KR', sans-serif; line-height: 1.6;
+}
+#editor-panel textarea:focus { outline: none; border-color: var(--edit-blue); }
+.ep-btn {
+  width: 100%; padding: 10px; border-radius: 8px; border: none; cursor: pointer;
+  font-size: 13px; font-weight: 600; margin-top: 8px; transition: all 0.2s;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+.ep-btn.apply { background: var(--edit-blue); color: white; }
+.ep-btn.apply:hover { background: #1d4ed8; }
+.ep-btn.cancel { background: #374151; color: #d1d5db; }
+.ep-btn.cancel:hover { background: #4b5563; }
+#editor-panel .hint { color: #6b7280; font-size: 11px; margin-top: 6px; line-height: 1.5; }
 
-.film-sec{background:var(--dark)}
-.film-tabs{display:flex;gap:2.5rem;margin-bottom:2.5rem;border-bottom:1px solid var(--border);padding-bottom:1.2rem}
-.ftab{font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);background:none;border:none;cursor:pointer;padding:0.2rem 0;position:relative;transition:color 0.3s}
-.ftab.on{color:var(--gold)}
-.ftab.on::after{content:'';position:absolute;bottom:-1.2rem;left:0;right:0;height:1px;background:var(--gold)}
-.ftab:hover{color:var(--gold)}
-.film-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.film-card{background:var(--dark-surface);border:1px solid var(--border);padding:1.6rem 1.8rem;transition:border-color 0.3s,transform 0.3s;cursor:default}
-.film-card:hover{border-color:rgba(201,169,110,0.45);transform:translateY(-2px)}
-.film-card-type{font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem;opacity:0.75}
-.film-card h4{font-family:'Noto Serif KR',serif;font-size:1rem;font-weight:400;color:var(--text-primary);margin-bottom:0.4rem}
-.film-card-role{font-size:0.78rem;color:var(--text-muted)}
-.film-card-note{font-size:0.72rem;color:rgba(201,169,110,0.6);margin-top:0.3rem}
+/* ─── IMAGE UPLOAD PANEL ─── */
+#img-upload-panel {
+  display: none; position: fixed; right: 0; top: 52px; bottom: 0; width: 360px; z-index: 9997;
+  background: #111827; border-left: 1px solid #374151; overflow-y: auto;
+  padding: 20px;
+}
+#img-upload-panel.open { display: block; }
+.upload-zone {
+  border: 2px dashed #374151; border-radius: 12px; padding: 30px;
+  text-align: center; cursor: pointer; transition: border-color 0.2s;
+  background: #1f2937;
+}
+.upload-zone:hover { border-color: var(--edit-blue); }
+.upload-zone p { color: #9ca3af; font-size: 13px; margin-top: 8px; }
+.url-input-row { display: flex; gap: 8px; margin-top: 12px; }
+.url-input-row input {
+  flex: 1; padding: 8px 12px; border-radius: 8px; border: 1px solid #374151;
+  background: #1f2937; color: white; font-size: 13px;
+}
+.url-input-row input:focus { outline: none; border-color: var(--edit-blue); }
+.url-input-row button {
+  padding: 8px 14px; border-radius: 8px; border: none; background: var(--edit-blue);
+  color: white; font-size: 13px; cursor: pointer; white-space: nowrap;
+}
+#img-preview { width: 100%; border-radius: 8px; margin-top: 12px; display: none; max-height: 200px; object-fit: cover; }
 
-.ad-sec{background:var(--dark-mid)}
-.ad-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0.8rem}
-.ad-item{background:var(--dark-surface);border:1px solid var(--border);padding:1rem 1.2rem;font-size:0.8rem;color:var(--text-muted);text-align:center;transition:all 0.3s;cursor:default;line-height:1.5}
-.ad-item:hover{border-color:rgba(201,169,110,0.4);color:var(--text-primary)}
-.ad-item .brand{font-family:'Noto Serif KR',serif;font-size:0.9rem;color:var(--text-primary);display:block;margin-bottom:0.2rem}
+/* ─── ADD FILM MODAL ─── */
+#add-film-modal, #add-ad-modal, #add-video-modal, #add-gallery-modal {
+  display: none; position: fixed; inset: 0; z-index: 10001;
+  background: rgba(0,0,0,0.8); align-items: center; justify-content: center;
+}
+#add-film-modal.open, #add-ad-modal.open, #add-video-modal.open, #add-gallery-modal.open { display: flex; }
+.modal-box {
+  background: #1a1a2e; border: 1px solid #374151; border-radius: 16px;
+  padding: 32px; width: 400px; max-width: 90vw;
+}
+.modal-box h3 { color: rgba(255,255,255,0.85); font-size: 16px; margin-bottom: 20px; }
+.modal-field { margin-bottom: 14px; }
+.modal-field label { display: block; color: #9ca3af; font-size: 12px; margin-bottom: 6px; }
+.modal-field input, .modal-field select, .modal-field textarea {
+  width: 100%; padding: 10px 12px; border-radius: 8px; border: 1px solid #374151;
+  background: #111827; color: white; font-size: 14px;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+.modal-field input:focus, .modal-field select:focus, .modal-field textarea:focus {
+  outline: none; border-color: rgba(255,255,255,0.35);
+}
+.modal-field select option { background: #111827; }
+.modal-actions { display: flex; gap: 10px; margin-top: 20px; }
+.modal-actions button {
+  flex: 1; padding: 11px; border-radius: 8px; border: none; cursor: pointer;
+  font-size: 14px; font-weight: 600; font-family: 'Noto Sans KR', sans-serif;
+}
+.modal-actions .confirm { background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.2); }
+.modal-actions .confirm:hover { background: rgba(255,255,255,0.18); }
+.modal-actions .cancel { background: #374151; color: #d1d5db; }
 
-.gallery-sec{background:var(--dark)}
-.gal-tabs{display:flex;gap:2rem;margin-bottom:2.5rem;border-bottom:1px solid var(--border);padding-bottom:1.4rem;flex-wrap:wrap}
-.gtab{font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);background:none;border:none;cursor:pointer;padding:0.25rem 0;position:relative;transition:color 0.3s}
-.gtab.on{color:var(--gold)}
-.gtab.on::after{content:'';position:absolute;bottom:-1.4rem;left:0;right:0;height:1px;background:var(--gold)}
-.gtab:hover{color:var(--gold)}
-.masonry{columns:3;column-gap:1.2rem}
-.gi{break-inside:avoid;margin-bottom:1.2rem;position:relative;overflow:hidden;cursor:pointer}
-.gi img{width:100%;display:block;object-fit:cover;filter:grayscale(8%);transition:transform 0.55s ease,filter 0.4s}
-.gi:hover img{transform:scale(1.06);filter:grayscale(0%)}
-.gi-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,0.82) 0%,transparent 55%);opacity:0;transition:opacity 0.4s;display:flex;align-items:flex-end;padding:1.2rem}
-.gi:hover .gi-ov{opacity:1}
-.gi-lbl{font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold)}
+/* ─── DELETE BUTTON ─── */
+body.edit-mode .delete-btn {
+  display: inline-flex !important;
+}
+.delete-btn {
+  display: none; position: absolute; top: 4px; right: 4px;
+  width: 22px; height: 22px; border-radius: 50%; background: #dc2626;
+  color: white; border: none; cursor: pointer; font-size: 11px;
+  align-items: center; justify-content: center; z-index: 10;
+  line-height: 1;
+}
 
-.lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.93);z-index:999;align-items:center;justify-content:center}
-.lb.show{display:flex}
-.lb img{max-height:88vh;max-width:88vw;object-fit:contain}
-.lb-close{position:absolute;top:1.5rem;right:2rem;font-size:2rem;color:var(--gold);cursor:pointer;opacity:0.7;background:none;border:none;font-family:serif}
-.lb-close:hover{opacity:1}
-.lb-prev,.lb-next{position:absolute;top:50%;transform:translateY(-50%);font-size:3rem;color:var(--gold);cursor:pointer;background:none;border:none;opacity:0.55;padding:1rem;font-family:serif}
-.lb-prev{left:0.5rem}.lb-next{right:0.5rem}
-.lb-prev:hover,.lb-next:hover{opacity:1}
+/* ═══════════════════════════════════════════
+   ORIGINAL SITE STYLES
+═══════════════════════════════════════════ */
 
-.quote-sec{background:var(--dark-surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:4.5rem 8rem;text-align:center;position:relative;overflow:hidden}
-.quote-sec::before{content:'"';position:absolute;top:-3rem;left:50%;transform:translateX(-50%);font-family:'Cormorant Garamond',serif;font-size:18rem;color:var(--gold);opacity:0.03;line-height:1;pointer-events:none}
-.quote-txt{font-family:'Noto Serif KR',serif;font-size:clamp(1.05rem,2vw,1.55rem);font-weight:300;line-height:1.95;color:var(--text-primary);max-width:660px;margin:0 auto 1.5rem;word-break:keep-all}
-.quote-by{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.88rem;color:var(--gold);letter-spacing:0.15em}
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 22px 60px; display: flex; align-items: center; justify-content: space-between;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: top 0.3s, background 0.4s, border-color 0.4s, padding 0.3s;
+}
+nav.scrolled {
+  background: rgba(17,16,9,0.93);
+  border-bottom-color: rgba(201,168,76,0.08);
+  padding: 16px 60px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+nav.admin-offset { top: 52px; }
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a {
+  color: rgba(237,232,222,0.4); text-decoration: none;
+  font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+  transition: color 0.25s; font-weight: 400;
+}
+.nav-links a:hover { color: var(--gold-light); }
+.nav-links a.active { color: var(--gold); }
+.nav-admin-trigger {
+  background: none; border: 1px solid rgba(201,168,76,0.2);
+  color: rgba(201,168,76,0.4); padding: 6px 14px; border-radius: 2px;
+  cursor: pointer; font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+  transition: all 0.2s; font-family: 'Noto Sans KR', sans-serif;
+}
+.nav-admin-trigger:hover { border-color: var(--gold); color: var(--gold); }
 
-.contact-sec{background:var(--dark-mid);text-align:center;padding:7rem 4rem}
-.contact-sec .sec-hd{justify-content:center;flex-direction:column;gap:0.8rem}
-.contact-sub{font-size:0.88rem;color:var(--text-muted);max-width:440px;margin:0 auto 3.5rem;line-height:2;word-break:keep-all}
-.cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;max-width:780px;margin:0 auto;border:1px solid var(--border)}
-.cc{padding:2.2rem 1.8rem;background:var(--dark-surface);transition:background 0.3s}
-.cc:hover{background:#202020}
-.cc-icon{font-family:'Cormorant Garamond',serif;font-size:1.7rem;color:var(--gold);margin-bottom:0.7rem;opacity:0.65}
-.cc h4{font-size:0.68rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.45rem}
-.cc p{font-size:0.88rem;color:var(--text-primary)}
-.cc a{color:var(--text-primary);text-decoration:none}
-.cc a:hover{color:var(--gold)}
+/* NAV LOGO */
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px; font-weight: 400;
+  letter-spacing: 4px; color: var(--gold);
+  text-decoration: none; text-transform: uppercase;
+  opacity: 0.9;
+}
+.nav-logo .dot { color: rgba(201,168,76,0.4); margin: 0 8px; font-size: 10px; }
+.nav-logo .ko { font-family: 'Noto Sans KR', sans-serif; font-size: 12px; font-weight: 300; letter-spacing: 3px; color: rgba(237,232,222,0.6); }
 
-footer{background:var(--dark);border-top:1px solid var(--border);padding:1.8rem 4rem;display:flex;justify-content:space-between;align-items:center}
-.f-logo{font-family:'Cormorant Garamond',serif;font-size:1rem;letter-spacing:0.3em;color:var(--gold);opacity:0.55}
-.f-copy{font-size:0.7rem;color:var(--text-muted);letter-spacing:0.1em}
+/* HERO — split layout */
+#hero {
+  min-height: 100vh; display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative; overflow: hidden;
+}
+.hero-photo-side {
+  position: relative; overflow: hidden;
+}
+.hero-photo-side .edit-img-wrap { width: 100%; height: 100%; display: block; }
+.hero-photo-side img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: top center;
+  display: block;
+}
+/* gradient fade right edge */
+.hero-photo-side::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to right, transparent 55%, var(--dark) 100%);
+  pointer-events: none;
+}
+.hero-text-side {
+  background: var(--dark);
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 100px 70px 80px 60px;
+  position: relative; z-index: 1;
+}
+.hero-badge { display: none; }
+.hero-name {
+  font-family: 'Noto Serif KR', serif;
+  font-size: clamp(52px, 6vw, 88px);
+  font-weight: 700; letter-spacing: 4px; line-height: 1;
+  margin-bottom: 20px; color: #ede8de;
+}
+.hero-name-en {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(18px, 2vw, 24px);
+  color: var(--gold); letter-spacing: 5px;
+  margin-bottom: 32px; font-weight: 400; font-style: italic;
+}
+.hero-divider {
+  width: 100%; height: 1px;
+  background: rgba(201,168,76,0.15);
+  margin-bottom: 28px;
+}
+.hero-meta {
+  display: flex; gap: 0; margin-bottom: 28px;
+  flex-direction: column; gap: 10px;
+}
+.hero-meta-item {
+  font-size: 13px; color: rgba(237,232,222,0.5);
+  letter-spacing: 0.5px; display: flex; align-items: center; gap: 10px;
+}
+.hero-meta-item .label { color: rgba(237,232,222,0.35); font-size: 12px; min-width: 48px; }
+.hero-meta-item .val { color: rgba(237,232,222,0.85); font-weight: 500; }
+.hero-meta-item .sep { color: rgba(201,168,76,0.3); margin: 0 8px; }
+.hero-desc {
+  font-size: 14px; line-height: 2; color: rgba(237,232,222,0.45);
+  margin-bottom: 36px; font-weight: 300; letter-spacing: 0.3px;
+  border-left: 1px solid rgba(201,168,76,0.2);
+  padding-left: 16px;
+}
+.hero-cta {
+  display: inline-flex; align-items: center; gap: 10px;
+  color: var(--gold); font-size: 11px; letter-spacing: 3px;
+  text-decoration: none; text-transform: uppercase;
+  transition: gap 0.3s, opacity 0.3s; opacity: 0.75;
+  border-bottom: 1px solid rgba(201,168,76,0.3);
+  padding-bottom: 8px; width: fit-content;
+}
+.hero-cta:hover { gap: 16px; opacity: 1; }
+.hero-cta .arrow { font-size: 14px; transition: transform 0.3s; }
+.hero-cta:hover .arrow { transform: translateX(4px); }
 
-.fade{opacity:0;transform:translateY(18px);transition:opacity 0.65s ease,transform 0.65s ease}
-.fade.in{opacity:1;transform:translateY(0)}
+/* stats bar — bottom strip */
+.hero-stats {
+  position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
+  display: flex; border-top: 1px solid rgba(201,168,76,0.1);
+  background: rgba(17,16,9,0.85);
+  backdrop-filter: blur(8px);
+}
+.hero-stat-item {
+  flex: 1; padding: 24px 0; text-align: center;
+  border-right: 1px solid rgba(201,168,76,0.1);
+}
+.hero-stat-item:last-child { border-right: none; }
+.hero-stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px; color: var(--gold-light); font-weight: 400; line-height: 1;
+  display: block;
+}
+.hero-stat-label {
+  font-size: 10px; color: rgba(237,232,222,0.35);
+  letter-spacing: 2px; text-transform: uppercase;
+  margin-top: 6px; display: block;
+}
 
-@media(max-width:1024px){.stats{grid-template-columns:repeat(3,1fr)}.film-grid{grid-template-columns:1fr}.ad-grid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:960px){nav{padding:1.2rem 2rem}.nav-links{display:none}.hero{grid-template-columns:1fr}.hero-img-wrap{height:50vh}.hero-content{padding:3rem 2rem}section{padding:4rem 2rem}.stats{grid-template-columns:repeat(2,1fr);padding:2rem}.about-grid{grid-template-columns:1fr}.img-stack{height:300px}.masonry{columns:2}.cgrid{grid-template-columns:1fr}.quote-sec{padding:3.5rem 2rem}footer{flex-direction:column;gap:0.8rem;text-align:center}.ad-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.masonry{columns:1}.ad-grid{grid-template-columns:repeat(2,1fr)}}
+/* SECTIONS */
+section { padding: 100px 60px; }
+.section-label { font-size: 10px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 16px; opacity: 0.7; }
+.section-title { font-family: 'Noto Serif KR', serif; font-size: clamp(28px, 4vw, 42px); font-weight: 600; margin-bottom: 60px; color: #ede8de; }
+.section-title::after { content: ''; display: block; width: 28px; height: 1px; background: rgba(201,168,76,0.4); margin-top: 18px; }
+
+/* ABOUT */
+#about { background: var(--dark2); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.about-images { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; position: relative; }
+.about-images img { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: top; }
+.about-images img:first-child { grid-column: 1 / -1; aspect-ratio: 3/2; }
+.about-quote { border-left: 1px solid rgba(201,168,76,0.4); padding-left: 20px; margin: 32px 0; font-family: 'Cormorant Garamond', serif; font-size: 18px; line-height: 1.7; color: var(--gold-light); font-style: italic; opacity: 0.85; }
+.profile-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+.profile-table tr { border-bottom: 1px solid rgba(255,255,255,0.06); }
+.profile-table td { padding: 12px 0; font-size: 13px; vertical-align: top; }
+.profile-table td:first-child { color: var(--gray); width: 90px; letter-spacing: 1px; }
+.profile-table td:last-child { color: rgba(255,255,255,0.85); }
+
+/* FILMS */
+#filmography { background: var(--dark); }
+.film-filter { display: flex; gap: 8px; margin-bottom: 40px; flex-wrap: wrap; }
+.film-filter-btn { padding: 7px 18px; border: 1px solid rgba(255,255,255,0.15); background: none; color: rgba(255,255,255,0.5); cursor: pointer; font-size: 12px; letter-spacing: 1px; transition: all 0.2s; font-family: 'Noto Sans KR', sans-serif; border-radius: 3px; }
+.film-filter-btn.active, .film-filter-btn:hover { border-color: var(--gold); color: var(--gold); }
+.films-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 2px; }
+.film-card { background: var(--dark3); padding: 28px 22px; position: relative; transition: background 0.2s; }
+.film-card:hover { background: #2a2a2a; }
+.film-badge { display: inline-block; font-size: 9px; letter-spacing: 2px; padding: 3px 8px; text-transform: uppercase; margin-bottom: 14px; font-weight: 700; }
+.film-badge.netflix { background: #e50914; color: white; }
+.film-badge.webdrama { background: #0ea5e9; color: white; }
+.film-badge.film { background: rgba(201,168,76,0.15); color: var(--gold-light); }
+.film-badge.short { background: #8b5cf6; color: white; }
+.film-title { font-size: 16px; font-weight: 600; margin-bottom: 6px; font-family: 'Noto Serif KR', serif; }
+.film-role { font-size: 12px; color: var(--gray); }
+
+/* ADS */
+#ads { background: var(--dark2); }
+.ads-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 2px; }
+.ad-card { background: var(--dark3); padding: 22px 18px; position: relative; transition: background 0.2s; }
+.ad-card:hover { background: #2a2a2a; }
+.ad-brand { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+.ad-cat { font-size: 11px; color: var(--gold); letter-spacing: 1px; opacity: 0.65; }
+
+/* VIDEOS */
+#videos { background: var(--dark); }
+.videos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+.video-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 4px; background: #111; }
+.video-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; }
+.video-item { position: relative; }
+.video-label { font-size: 12px; color: var(--gray); margin-top: 8px; letter-spacing: 1px; }
+
+/* GALLERY */
+#gallery { background: var(--dark2); }
+.gallery-filter { display: flex; gap: 8px; margin-bottom: 32px; flex-wrap: wrap; }
+.gallery-filter-btn { padding: 7px 18px; border: 1px solid rgba(255,255,255,0.15); background: none; color: rgba(255,255,255,0.5); cursor: pointer; font-size: 12px; letter-spacing: 1px; transition: all 0.2s; font-family: 'Noto Sans KR', sans-serif; border-radius: 3px; }
+.gallery-filter-btn.active, .gallery-filter-btn:hover { border-color: var(--gold); color: var(--gold); }
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 4px; }
+.gallery-item { position: relative; overflow: hidden; cursor: pointer; }
+.gallery-item img { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: top; display: block; transition: transform 0.4s; }
+.gallery-item:hover img { transform: scale(1.04); }
+.gallery-item .cat-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 8px 10px; background: linear-gradient(transparent, rgba(0,0,0,0.8)); font-size: 10px; letter-spacing: 1px; color: rgba(255,255,255,0.7); opacity: 0; transition: opacity 0.3s; }
+.gallery-item:hover .cat-label { opacity: 1; }
+
+/* CONTACT */
+#contact { background: var(--dark); text-align: center; }
+.contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; max-width: 700px; margin: 0 auto 60px; }
+.contact-item .contact-icon { font-size: 22px; margin-bottom: 12px; }
+.contact-item h4 { font-size: 10px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; opacity: 0.7; }
+.contact-item a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 15px; transition: color 0.2s; }
+.contact-item a:hover { color: var(--gold-light); }
+.contact-item p { color: rgba(255,255,255,0.8); font-size: 15px; }
+
+/* LIGHTBOX */
+#lightbox { display: none; position: fixed; inset: 0; z-index: 10000; background: rgba(0,0,0,0.95); align-items: center; justify-content: center; }
+#lightbox.open { display: flex; }
+#lightbox img { max-width: 90vw; max-height: 90vh; object-fit: contain; }
+#lightbox-close { position: absolute; top: 20px; right: 30px; color: white; font-size: 28px; cursor: pointer; background: none; border: none; }
+#lightbox-prev, #lightbox-next { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.1); border: none; color: white; font-size: 24px; padding: 12px 18px; cursor: pointer; border-radius: 4px; }
+#lightbox-prev { left: 20px; }
+#lightbox-next { right: 20px; }
+
+/* FOOTER */
+footer { background: #080808; padding: 40px 60px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+footer p { font-size: 11px; color: rgba(255,255,255,0.3); letter-spacing: 1px; }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  nav { padding: 16px 24px; }
+  #hero { grid-template-columns: 1fr; grid-template-rows: 50vh auto; }
+  .hero-photo-side { height: 50vh; }
+  .hero-photo-side::after { background: linear-gradient(to bottom, transparent 60%, var(--dark) 100%); }
+  .hero-text-side { padding: 40px 24px 100px; }
+  .hero-stats { position: static; flex-wrap: wrap; }
+  .hero-stat-item { flex: 1 1 33%; padding: 16px 0; }
+  section { padding: 70px 24px; }
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  footer { padding: 30px 24px; }
+  #editor-panel, #img-upload-panel { width: 100%; top: 52px; left: 0; right: 0; bottom: auto; max-height: 50vh; }
+}
 </style>
 </head>
 <body>
 
-<nav>
-  <a href="#" class="nav-logo">Yang Gwang-gyu · 양광규</a>
+<!-- ═══ ADMIN BAR ═══ -->
+<div id="admin-bar">
+  <span class="admin-label">✏️ 편집 모드</span>
+  <button class="admin-btn add" onclick="openAddFilmModal()">+ 출연작 추가</button>
+  <button class="admin-btn add" onclick="openAddAdModal()">+ 광고 추가</button>
+  <button class="admin-btn add" onclick="openAddVideoModal()">+ 영상 추가</button>
+  <button class="admin-btn add" onclick="openAddGalleryModal()">+ 갤러리 사진 추가</button>
+  <button class="admin-btn save" onclick="saveData()">💾 중간저장</button>
+  <button class="admin-btn export" onclick="exportHTML()">📥 HTML 내보내기</button>
+  <span id="save-status"></span>
+  <button class="admin-btn exit" onclick="exitEditMode()">✕ 편집 종료</button>
+</div>
+<div id="admin-bar-spacer"></div>
+
+<!-- ═══ LOGIN MODAL ═══ -->
+<div id="login-modal">
+  <div class="login-box">
+    <h3>관리자 편집 모드</h3>
+    <p>비밀번호를 입력하세요</p>
+    <input type="password" id="pw-input" placeholder="••••" onkeydown="if(event.key==='Enter')checkPw()">
+    <button onclick="checkPw()">입력</button>
+    <div id="login-error"></div>
+    <p style="color:#4b5563;font-size:11px;margin-top:16px;">초기 비밀번호: 1234</p>
+  </div>
+</div>
+
+<!-- ═══ EDITOR PANEL ═══ -->
+<div id="editor-panel">
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+    <h4>텍스트 편집</h4>
+    <button onclick="closeEditorPanel()" style="background:none;border:none;color:#9ca3af;cursor:pointer;font-size:16px;">✕</button>
+  </div>
+  <h4 id="ep-field-name" style="color:#d1d5db;text-transform:none;letter-spacing:0;font-size:13px;margin-bottom:8px;"></h4>
+  <textarea id="ep-textarea"></textarea>
+  <p class="hint">줄바꿈은 Enter 키로, 굵게는 **텍스트** 형태로 입력하세요.</p>
+  <button class="ep-btn apply" onclick="applyEdit()">✓ 적용</button>
+  <button class="ep-btn cancel" onclick="closeEditorPanel()">취소</button>
+</div>
+
+<!-- ═══ IMAGE UPLOAD PANEL ═══ -->
+<div id="img-upload-panel">
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+    <h4>사진 교체</h4>
+    <button onclick="closeImgPanel()" style="background:none;border:none;color:#9ca3af;cursor:pointer;font-size:16px;">✕</button>
+  </div>
+  <div class="upload-zone" onclick="document.getElementById('file-input').click()">
+    <div style="font-size:28px;">📷</div>
+    <p>클릭하여 사진 선택<br><span style="font-size:11px;">JPG, PNG, GIF, WEBP</span></p>
+  </div>
+  <input type="file" id="file-input" accept="image/*" style="display:none" onchange="handleFileSelect(event)">
+  <p style="color:#6b7280;font-size:12px;text-align:center;margin:12px 0;">또는 이미지 URL 직접 입력</p>
+  <div class="url-input-row">
+    <input type="text" id="img-url-input" placeholder="https://...">
+    <button onclick="applyImgUrl()">적용</button>
+  </div>
+  <img id="img-preview" alt="미리보기">
+  <button class="ep-btn apply" onclick="applyImgChange()" style="margin-top:16px;">✓ 사진 교체</button>
+  <button class="ep-btn cancel" onclick="closeImgPanel()">취소</button>
+</div>
+
+<!-- ═══ ADD FILM MODAL ═══ -->
+<div id="add-film-modal">
+  <div class="modal-box">
+    <h3>출연작 추가</h3>
+    <div class="modal-field">
+      <label>제목</label>
+      <input type="text" id="film-title-input" placeholder="작품 제목">
+    </div>
+    <div class="modal-field">
+      <label>역할</label>
+      <input type="text" id="film-role-input" placeholder="역할명 (예: 주연, 형사 역)">
+    </div>
+    <div class="modal-field">
+      <label>구분</label>
+      <select id="film-type-input">
+        <option value="netflix">Netflix · 드라마</option>
+        <option value="webdrama">웹드라마</option>
+        <option value="film">장편영화</option>
+        <option value="short">단편영화</option>
+      </select>
+    </div>
+    <div class="modal-field">
+      <label>설명 (선택)</label>
+      <input type="text" id="film-desc-input" placeholder="예: Netflix 오리지널">
+    </div>
+    <div class="modal-actions">
+      <button class="confirm" onclick="confirmAddFilm()">추가</button>
+      <button class="cancel" onclick="document.getElementById('add-film-modal').classList.remove('open')">취소</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ ADD AD MODAL ═══ -->
+<div id="add-ad-modal">
+  <div class="modal-box">
+    <h3>광고·CF 추가</h3>
+    <div class="modal-field">
+      <label>브랜드명</label>
+      <input type="text" id="ad-brand-input" placeholder="브랜드명">
+    </div>
+    <div class="modal-field">
+      <label>카테고리</label>
+      <input type="text" id="ad-cat-input" placeholder="예: 금융·보험, 헬스케어, 가전">
+    </div>
+    <div class="modal-actions">
+      <button class="confirm" onclick="confirmAddAd()">추가</button>
+      <button class="cancel" onclick="document.getElementById('add-ad-modal').classList.remove('open')">취소</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ ADD VIDEO MODAL ═══ -->
+<div id="add-video-modal">
+  <div class="modal-box">
+    <h3>유튜브 영상 추가</h3>
+    <div class="modal-field">
+      <label>유튜브 URL 또는 영상 ID</label>
+      <input type="text" id="video-url-input" placeholder="https://youtube.com/watch?v=...">
+    </div>
+    <div class="modal-field">
+      <label>설명 (선택)</label>
+      <input type="text" id="video-label-input" placeholder="예: Netflix 드라마 출연 장면">
+    </div>
+    <div class="modal-actions">
+      <button class="confirm" onclick="confirmAddVideo()">추가</button>
+      <button class="cancel" onclick="document.getElementById('add-video-modal').classList.remove('open')">취소</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ ADD GALLERY MODAL ═══ -->
+<div id="add-gallery-modal">
+  <div class="modal-box">
+    <h3>갤러리 사진 추가</h3>
+    <div class="modal-field">
+      <label>이미지 URL</label>
+      <input type="text" id="gallery-url-input" placeholder="https://...">
+    </div>
+    <div class="modal-field">
+      <label>카테고리</label>
+      <select id="gallery-cat-input">
+        <option value="공식 프로필">공식 프로필</option>
+        <option value="비즈니스">비즈니스</option>
+        <option value="캐주얼">캐주얼</option>
+        <option value="아웃도어">아웃도어</option>
+      </select>
+    </div>
+    <div class="modal-field">
+      <label>또는 파일에서 업로드</label>
+      <input type="file" id="gallery-file-input" accept="image/*" onchange="handleGalleryFile(event)" style="padding:6px;font-size:13px;">
+    </div>
+    <div class="modal-actions">
+      <button class="confirm" onclick="confirmAddGallery()">추가</button>
+      <button class="cancel" onclick="document.getElementById('add-gallery-modal').classList.remove('open')">취소</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ LIGHTBOX ═══ -->
+<div id="lightbox">
+  <button id="lightbox-close" onclick="closeLightbox()">✕</button>
+  <button id="lightbox-prev" onclick="lightboxNav(-1)">‹</button>
+  <img id="lightbox-img" src="" alt="">
+  <button id="lightbox-next" onclick="lightboxNav(1)">›</button>
+</div>
+
+<!-- ═══════════════════════ MAIN SITE ═══════════════════════ -->
+
+<nav id="main-nav">
+  <a href="#" class="nav-logo">YANG GWANG-GYU <span class="dot">·</span> <span class="ko">양광규</span></a>
   <ul class="nav-links">
     <li><a href="#about">프로필</a></li>
     <li><a href="#filmography">출연작</a></li>
     <li><a href="#ads">광고</a></li>
+    <li><a href="#videos">영상</a></li>
     <li><a href="#gallery">갤러리</a></li>
     <li><a href="#contact">연락</a></li>
   </ul>
+  <button class="nav-admin-trigger" onclick="openLoginModal()">관리</button>
 </nav>
 
 <!-- HERO -->
-<div class="hero">
-  <div class="hero-img-wrap">
-    <img src="https://i.ibb.co/GQxKL1sG/Kakao-Talk-20260421-104424469-29.jpg" alt="배우 양광규">
-    <div class="hero-img-fade"></div>
+<section id="hero">
+  <!-- 왼쪽: 사진 -->
+  <div class="hero-photo-side">
+    <div class="edit-img-wrap" style="width:100%;height:100%;display:block;" onclick="openImgPanel(this,'hero-bg-img','히어로 배경 사진')">
+      <img id="hero-bg-img" src="https://i.ibb.co/GQxKL1sG/Kakao-Talk-20260421-104424469-29.jpg" alt="배우 양광규">
+    </div>
   </div>
-  <div class="hero-content">
-    <div class="vline"></div>
-    <p class="hero-eyebrow">Actor · 배우</p>
-    <h1 class="hero-name">양 광 규</h1>
-    <span class="hero-name-en">Yang Gwang-gyu</span>
-    <div class="hero-specs">
-      <div class="hero-spec-row">
-        <span>1963년생</span><div class="hero-spec-div"></div>
-        <span>활동나이 <span class="val">50 — 60대</span></span>
+
+  <!-- 오른쪽: 텍스트 -->
+  <div class="hero-text-side">
+    <h1 class="hero-name" data-editable data-field="hero-name" onclick="openEditor(this,'히어로 이름')">양 광 규</h1>
+    <p class="hero-name-en" data-editable data-field="hero-name-en" onclick="openEditor(this,'영문 이름')">Yang Gwang-gyu</p>
+    <div class="hero-divider"></div>
+    <div class="hero-meta">
+      <div class="hero-meta-item" data-editable data-field="hero-birth" onclick="openEditor(this,'생년·나이 정보')">
+        <span class="label">1963년생</span><span class="sep">|</span><span class="val">활동나이 50 — 60대</span>
       </div>
-      <div class="hero-spec-row">
-        <span>키 <span class="val">178 cm</span></span><div class="hero-spec-div"></div>
-        <span>체중 <span class="val">73 kg</span></span>
+      <div class="hero-meta-item">
+        <span class="label">키</span><span class="val" data-editable data-field="hero-height" onclick="openEditor(this,'키')">178 cm</span>
+        <span class="sep">|</span>
+        <span class="label">체중</span><span class="val" data-editable data-field="hero-weight" onclick="openEditor(this,'체중')">73 kg</span>
       </div>
     </div>
-    <p class="hero-desc">20년 강의 경력으로 다져진 카메라 친화력,<br>골프 30년의 여유로운 품격,<br>깊이 있는 시니어 연기로<br>스크린과 브랜드를 빛냅니다.</p>
-    <a href="#filmography" class="hero-cta">출연 경력 보기</a>
-    <div class="scroll-ind"><div class="scroll-line"></div><span>Scroll</span></div>
+    <p class="hero-desc" data-editable data-field="hero-desc" onclick="openEditor(this,'히어로 소개 문구')">20년 강의 경력으로 다져진 카메라 친화력,<br>골프 30년의 여유로운 품격,<br>깊이 있는 시니어 연기로<br>스크린과 브랜드를 빛냅니다.</p>
+    <a href="#filmography" class="hero-cta">출연 경력 보기 <span class="arrow">→</span></a>
   </div>
-</div>
 
-<!-- STATS -->
-<div class="stats">
-  <div class="stat fade"><div class="snum">Netflix</div><div class="slbl">드라마 출연</div></div>
-  <div class="stat fade"><div class="snum">4<sup style="font-size:1rem">+</sup></div><div class="slbl">장편영화</div></div>
-  <div class="stat fade"><div class="snum">4<sup style="font-size:1rem">+</sup></div><div class="slbl">웹드라마</div></div>
-  <div class="stat fade"><div class="snum">20<sup style="font-size:1rem">+</sup></div><div class="slbl">광고 브랜드</div></div>
-  <div class="stat fade"><div class="snum">20<sup style="font-size:1rem">년</sup></div><div class="slbl">강의 경력</div></div>
-</div>
+  <!-- 하단 스탯 바 -->
+  <div class="hero-stats">
+    <div class="hero-stat-item">
+      <span class="hero-stat-num" data-editable data-field="stat1" onclick="openEditor(this,'통계1')">Netflix</span>
+      <span class="hero-stat-label" data-editable data-field="stat1-label" onclick="openEditor(this,'통계1 설명')">드라마 출연</span>
+    </div>
+    <div class="hero-stat-item">
+      <span class="hero-stat-num" data-editable data-field="stat2" onclick="openEditor(this,'통계2')">4+</span>
+      <span class="hero-stat-label" data-editable data-field="stat2-label" onclick="openEditor(this,'통계2 설명')">장편영화</span>
+    </div>
+    <div class="hero-stat-item">
+      <span class="hero-stat-num" data-editable data-field="stat3" onclick="openEditor(this,'통계3')">4+</span>
+      <span class="hero-stat-label" data-editable data-field="stat3-label" onclick="openEditor(this,'통계3 설명')">웹드라마</span>
+    </div>
+    <div class="hero-stat-item">
+      <span class="hero-stat-num" data-editable data-field="stat4" onclick="openEditor(this,'통계4')">20+</span>
+      <span class="hero-stat-label" data-editable data-field="stat4-label" onclick="openEditor(this,'통계4 설명')">광고 브랜드</span>
+    </div>
+    <div class="hero-stat-item">
+      <span class="hero-stat-num" data-editable data-field="stat5" onclick="openEditor(this,'통계5')">20년</span>
+      <span class="hero-stat-label" data-editable data-field="stat5-label" onclick="openEditor(this,'통계5 설명')">강의 경력</span>
+    </div>
+  </div>
+</section>
 
 <!-- ABOUT -->
-<section id="about" class="about-sec">
-  <div class="sec-hd"><span class="sec-eye">Profile</span><h2 class="sec-title">배우 소개</h2><div class="sec-line"></div></div>
+<section id="about">
+  <div class="section-label">Profile</div>
+  <h2 class="section-title">배우 소개</h2>
   <div class="about-grid">
-    <div class="img-stack fade">
-      <div class="gold-bar"></div>
-      <img class="img-main" src="https://i.ibb.co/HTBrT2f7/Kakao-Talk-20260421-104424469.jpg" alt="양광규">
-      <img class="img-accent" src="https://i.ibb.co/YFm6Bvs7/Kakao-Talk-20260421-104424469-19.jpg" alt="양광규 야외">
+    <div class="about-images">
+      <div class="edit-img-wrap" style="grid-column:1/-1;" onclick="openImgPanel(this,'about-img1','프로필 메인 사진')">
+        <img id="about-img1" src="https://i.ibb.co/HTBrT2f7/Kakao-Talk-20260421-104424469.jpg" alt="양광규" style="width:100%;aspect-ratio:3/2;object-fit:cover;object-position:top;">
+      </div>
+      <div class="edit-img-wrap" onclick="openImgPanel(this,'about-img2','프로필 사진 2')">
+        <img id="about-img2" src="https://i.ibb.co/YFm6Bvs7/Kakao-Talk-20260421-104424469-19.jpg" alt="양광규" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top;">
+      </div>
+      <div class="edit-img-wrap" onclick="openImgPanel(this,'about-img3','프로필 사진 3')">
+        <img id="about-img3" src="https://i.ibb.co/x8zrMyFQ/Kakao-Talk-20260421-104424469-24.jpg" alt="양광규" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top;">
+      </div>
     </div>
-    <div class="about-text fade">
-      <h3>카메라가 사랑하는 시니어 배우</h3>
-      <p>20년 강의 경력에서 쌓아온 자연스러운 카메라 친화력과 표현력은 어떤 역할도 설득력 있게 소화하는 밑바탕이 됩니다. Netflix 드라마부터 장편영화, 웹드라마, 그리고 20여 개 이상의 브랜드 광고까지, 다양한 현장에서 검증된 베테랑입니다.</p>
-      <p>신뢰감 있는 신사, 여유로운 중년 전문가, 인간적인 아버지상까지 — 삶의 깊이가 녹아든 연기로 시청자와 브랜드 모두에게 진정성을 전달합니다.</p>
+    <div>
+      <h3 style="font-size:22px;font-family:'Noto Serif KR',serif;margin-bottom:16px;" data-editable data-field="about-title" onclick="openEditor(this,'소개 제목')">카메라가 사랑하는 시니어 배우</h3>
+      <p style="font-size:14px;line-height:1.9;color:rgba(255,255,255,0.7);" data-editable data-field="about-desc" onclick="openEditor(this,'소개 본문')">20년 강의 경력에서 쌓아온 자연스러운 카메라 친화력과 표현력은 어떤 역할도 설득력 있게 소화하는 밑바탕이 됩니다. Netflix 드라마부터 장편영화, 웹드라마, 그리고 20여 개 이상의 브랜드 광고까지, 다양한 현장에서 검증된 베테랑입니다.<br><br>신뢰감 있는 신사, 여유로운 중년 전문가, 인간적인 아버지상까지 — 삶의 깊이가 녹아든 연기로 시청자와 브랜드 모두에게 진정성을 전달합니다.</p>
+      <blockquote class="about-quote" data-editable data-field="about-quote" onclick="openEditor(this,'인용문')">강의 단상에서 수천 명의 시선을 이끌어온 경험이 카메라 앞에서도 흔들리지 않는 존재감이 됩니다. 삶이 쌓인 얼굴, 그것이 제 가장 강한 무기입니다.</blockquote>
+      <p style="font-size:11px;color:var(--gray);letter-spacing:1px;margin-bottom:24px;">— 양광규</p>
       <table class="profile-table">
-        <tr><td>출생</td><td>1963년생 · 활동 나이 50~60대</td></tr>
-        <tr><td>신체</td><td>178 cm / 73 kg</td></tr>
-        <tr><td>사이즈</td><td>상의 105 · 하의 33 · 신발 270</td></tr>
-        <tr><td>특기</td><td><div class="tags"><span class="tag hi">골프 30년</span><span class="tag hi">강의 경력 20년</span><span class="tag hi">스키 10년</span></div></td></tr>
-        <tr><td>장점</td><td>오랜 강의 경험으로 카메라에 익숙하며 자연스러운 현장 적응력 보유</td></tr>
-        <tr><td>연락처</td><td>010-9109-6596 · eagley@naver.com</td></tr>
+        <tr><td>출생</td><td data-editable data-field="p-birth" onclick="openEditor(this,'출생 정보')">1963년생 · 활동 나이 50~60대</td></tr>
+        <tr><td>신체</td><td data-editable data-field="p-body" onclick="openEditor(this,'신체 정보')">178 cm / 73 kg</td></tr>
+        <tr><td>사이즈</td><td data-editable data-field="p-size" onclick="openEditor(this,'사이즈')">상의 105 · 하의 33 · 신발 270</td></tr>
+        <tr><td>특기</td><td data-editable data-field="p-skills" onclick="openEditor(this,'특기')">골프 30년 · 강의 경력 20년 · 스키 10년</td></tr>
+        <tr><td>장점</td><td data-editable data-field="p-strength" onclick="openEditor(this,'장점')">오랜 강의 경험으로 카메라에 익숙하며 자연스러운 현장 적응력 보유</td></tr>
+        <tr><td>연락처</td><td data-editable data-field="p-contact" onclick="openEditor(this,'연락처')">010-9109-6596 · eagley@naver.com</td></tr>
       </table>
     </div>
   </div>
 </section>
 
-<!-- QUOTE -->
-<div class="quote-sec">
-  <p class="quote-txt">"강의 단상에서 수천 명의 시선을 이끌어온 경험이<br>카메라 앞에서도 흔들리지 않는 존재감이 됩니다.<br>삶이 쌓인 얼굴, 그것이 제 가장 강한 무기입니다."</p>
-  <p class="quote-by">— 양광규</p>
-</div>
-
 <!-- FILMOGRAPHY -->
-<section id="filmography" class="film-sec">
-  <div class="sec-hd"><span class="sec-eye">Works</span><h2 class="sec-title">영화 · 드라마 출연작</h2><div class="sec-line"></div></div>
-  <div class="film-tabs">
-    <button class="ftab on" data-fcat="all">전체</button>
-    <button class="ftab" data-fcat="netflix">Netflix</button>
-    <button class="ftab" data-fcat="webdrama">웹드라마</button>
-    <button class="ftab" data-fcat="movie">영화</button>
+<section id="filmography">
+  <div class="section-label">Works</div>
+  <h2 class="section-title">영화 · 드라마 출연작</h2>
+  <div class="film-filter">
+    <button class="film-filter-btn active" onclick="filterFilms('all',this)">전체</button>
+    <button class="film-filter-btn" onclick="filterFilms('netflix',this)">Netflix</button>
+    <button class="film-filter-btn" onclick="filterFilms('webdrama',this)">웹드라마</button>
+    <button class="film-filter-btn" onclick="filterFilms('film',this)">영화</button>
+    <button class="film-filter-btn" onclick="filterFilms('short',this)">단편영화</button>
   </div>
-  <div class="film-grid" id="film-grid">
-    <div class="film-card fade" data-fcat="netflix">
-      <div class="film-card-type">Netflix · 드라마</div>
-      <h4>천천히 강렬하게</h4>
-      <div class="film-card-role">시장 상인 역</div>
-      <div class="film-card-note">Netflix 오리지널 드라마</div>
-    </div>
-    <div class="film-card fade" data-fcat="webdrama">
-      <div class="film-card-type">웹드라마 · 주연</div>
-      <h4>미래에서 온 편지</h4>
-      <div class="film-card-role">노인 역 (주연)</div>
-    </div>
-    <div class="film-card fade" data-fcat="webdrama">
-      <div class="film-card-type">웹드라마</div>
-      <h4>할세상</h4>
-      <div class="film-card-role">은퇴자 역</div>
-    </div>
-    <div class="film-card fade" data-fcat="webdrama">
-      <div class="film-card-type">웹드라마</div>
-      <h4>부모님 연구소</h4>
-      <div class="film-card-role">전문가 역</div>
-    </div>
-    <div class="film-card fade" data-fcat="webdrama">
-      <div class="film-card-type">웹드라마</div>
-      <h4>킥서비스</h4>
-      <div class="film-card-role">성인 학생 역</div>
-    </div>
-    <div class="film-card fade" data-fcat="movie">
-      <div class="film-card-type">장편영화</div>
-      <h4>레슨</h4>
-      <div class="film-card-role">공원 신사 역</div>
-    </div>
-    <div class="film-card fade" data-fcat="movie">
-      <div class="film-card-type">장편영화</div>
-      <h4>타이고</h4>
-      <div class="film-card-role">정치인 역</div>
-    </div>
-    <div class="film-card fade" data-fcat="movie">
-      <div class="film-card-type">장편영화</div>
-      <h4>순간의 사라</h4>
-      <div class="film-card-role">중년 손님 역</div>
-    </div>
-    <div class="film-card fade" data-fcat="movie">
-      <div class="film-card-type">장편영화</div>
-      <h4>수면 위에 두 사람</h4>
-      <div class="film-card-role">전시관 관객 역</div>
-    </div>
-    <div class="film-card fade" data-fcat="movie">
-      <div class="film-card-type">단편영화</div>
-      <h4>연기자</h4>
-      <div class="film-card-role">관객 역</div>
-    </div>
+  <div class="films-grid" id="films-grid">
+    <!-- dynamically rendered -->
   </div>
 </section>
 
 <!-- ADS -->
-<section id="ads" class="ad-sec">
-  <div class="sec-hd"><span class="sec-eye">Ads</span><h2 class="sec-title">광고 · CF 출연</h2><div class="sec-line"></div></div>
-  <div class="ad-grid">
-    <div class="ad-item fade"><span class="brand">국민연금</span>공공기관</div>
-    <div class="ad-item fade"><span class="brand">LG전자</span>가전</div>
-    <div class="ad-item fade"><span class="brand">삼성화재</span>금융·보험</div>
-    <div class="ad-item fade"><span class="brand">신세계백화점</span>유통·패션</div>
-    <div class="ad-item fade"><span class="brand">에버랜드</span>엔터테인먼트</div>
-    <div class="ad-item fade"><span class="brand">초록우산어린이재단</span>사회공헌</div>
-    <div class="ad-item fade"><span class="brand">성남시</span>지자체</div>
-    <div class="ad-item fade"><span class="brand">경상남도패스</span>지자체</div>
-    <div class="ad-item fade"><span class="brand">충청남도 영동군</span>포도 홍보</div>
-    <div class="ad-item fade"><span class="brand">링탭 풀쎄라</span>헬스케어</div>
-    <div class="ad-item fade"><span class="brand">풀리오</span>헬스케어</div>
-    <div class="ad-item fade"><span class="brand">베라슬립</span>수면</div>
-    <div class="ad-item fade"><span class="brand">강남새로치과</span>의료</div>
-    <div class="ad-item fade"><span class="brand">트리코엑스</span>뷰티</div>
-    <div class="ad-item fade"><span class="brand">휴라이트 3H지압침대</span>헬스케어</div>
-    <div class="ad-item fade"><span class="brand">허리편한케어V1</span>헬스케어</div>
-    <div class="ad-item fade"><span class="brand">Calo인솔</span>헬스케어</div>
-    <div class="ad-item fade"><span class="brand">비바랩스</span>뷰티·건강</div>
-    <div class="ad-item fade"><span class="brand">외 다수</span>지속 활동 중</div>
+<section id="ads">
+  <div class="section-label">Ads</div>
+  <h2 class="section-title">광고 · CF 출연</h2>
+  <div class="ads-grid" id="ads-grid">
+    <!-- dynamically rendered -->
   </div>
 </section>
 
-<!-- GALLERY -->
-<section id="gallery" class="gallery-sec">
-  <div class="sec-hd"><span class="sec-eye">Gallery</span><h2 class="sec-title">포토 갤러리</h2><div class="sec-line"></div></div>
-  <div class="gal-tabs">
-    <button class="gtab on" data-cat="all">전체 (30)</button>
-    <button class="gtab" data-cat="formal">공식 프로필</button>
-    <button class="gtab" data-cat="business">비즈니스</button>
-    <button class="gtab" data-cat="casual">캐주얼</button>
-    <button class="gtab" data-cat="outdoor">아웃도어</button>
+<!-- VIDEOS -->
+<section id="videos">
+  <div class="section-label">Video</div>
+  <h2 class="section-title">영상</h2>
+  <div class="videos-grid" id="videos-grid">
+    <!-- dynamically rendered -->
   </div>
-  <div class="masonry">
-    <!-- 공식 프로필 -->
-    <div class="gi fade" data-cat="formal"><img src="https://i.ibb.co/GQxKL1sG/Kakao-Talk-20260421-104424469-29.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">공식 프로필</span></div></div>
-    <div class="gi fade" data-cat="formal"><img src="https://i.ibb.co/HfVX5g54/Kakao-Talk-20260421-104424469-20.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">공식 프로필</span></div></div>
-    <div class="gi fade" data-cat="formal"><img src="https://i.ibb.co/hRhttWRx/Kakao-Talk-20260421-104424469-21.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">공식 프로필</span></div></div>
-    <div class="gi fade" data-cat="formal"><img src="https://i.ibb.co/yFydhCtH/Kakao-Talk-20260421-104424469-22.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">공식 프로필</span></div></div>
-    <div class="gi fade" data-cat="formal"><img src="https://i.ibb.co/YqWd125/Kakao-Talk-20260421-104424469-23.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">공식 프로필</span></div></div>
-    <div class="gi fade" data-cat="formal"><img src="https://i.ibb.co/x8zrMyFQ/Kakao-Talk-20260421-104424469-24.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">공식 프로필</span></div></div>
-    <!-- 비즈니스 -->
-    <div class="gi fade" data-cat="business"><img src="https://i.ibb.co/HTBrT2f7/Kakao-Talk-20260421-104424469.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">비즈니스</span></div></div>
-    <div class="gi fade" data-cat="business"><img src="https://i.ibb.co/Y4D0Sg74/Kakao-Talk-20260421-104424469-01.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">비즈니스</span></div></div>
-    <div class="gi fade" data-cat="business"><img src="https://i.ibb.co/20bRj0Z8/Kakao-Talk-20260421-104424469-06.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">비즈니스</span></div></div>
-    <div class="gi fade" data-cat="business"><img src="https://i.ibb.co/gLxxwt5L/Kakao-Talk-20260421-104424469-07.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">비즈니스</span></div></div>
-    <div class="gi fade" data-cat="business"><img src="https://i.ibb.co/XZkzWqLy/Kakao-Talk-20260421-104424469-08.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">비즈니스</span></div></div>
-    <div class="gi fade" data-cat="business"><img src="https://i.ibb.co/mF1wsfgy/Kakao-Talk-20260421-104424469-09.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">비즈니스</span></div></div>
-    <div class="gi fade" data-cat="business"><img src="https://i.ibb.co/wZR1n0CQ/Kakao-Talk-20260421-104424469-16.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">비즈니스</span></div></div>
-    <div class="gi fade" data-cat="business"><img src="https://i.ibb.co/7t3WZv6Q/Kakao-Talk-20260421-104424469-17.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">비즈니스</span></div></div>
-    <!-- 캐주얼 -->
-    <div class="gi fade" data-cat="casual"><img src="https://i.ibb.co/5gqx7LNc/Kakao-Talk-20260421-104424469-02.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">럭셔리 캐주얼</span></div></div>
-    <div class="gi fade" data-cat="casual"><img src="https://i.ibb.co/7xZ9QtQ3/Kakao-Talk-20260421-104424469-03.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">세미 캐주얼</span></div></div>
-    <div class="gi fade" data-cat="casual"><img src="https://i.ibb.co/QFnH7ns0/Kakao-Talk-20260421-104424469-04.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">캐주얼</span></div></div>
-    <div class="gi fade" data-cat="casual"><img src="https://i.ibb.co/YBGcbmKv/Kakao-Talk-20260421-104424469-05.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">캐주얼</span></div></div>
-    <div class="gi fade" data-cat="casual"><img src="https://i.ibb.co/8ggfyPk1/Kakao-Talk-20260421-104424469-10.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">캐주얼</span></div></div>
-    <div class="gi fade" data-cat="casual"><img src="https://i.ibb.co/Kx6gYjVn/Kakao-Talk-20260421-104424469-11.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">캐주얼</span></div></div>
-    <div class="gi fade" data-cat="casual"><img src="https://i.ibb.co/qLHpWzms/Kakao-Talk-20260421-104424469-12.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">세미 캐주얼</span></div></div>
-    <div class="gi fade" data-cat="casual"><img src="https://i.ibb.co/Rp7FrTbX/Kakao-Talk-20260421-104424469-13.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">캐주얼</span></div></div>
-    <div class="gi fade" data-cat="casual"><img src="https://i.ibb.co/tPszzKzN/Kakao-Talk-20260421-104424469-14.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">캐주얼</span></div></div>
-    <div class="gi fade" data-cat="casual"><img src="https://i.ibb.co/Z68ZnSMZ/Kakao-Talk-20260421-104424469-15.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">캐주얼</span></div></div>
-    <div class="gi fade" data-cat="casual"><img src="https://i.ibb.co/V43w8mF/Kakao-Talk-20260421-104424469-25.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">캐주얼</span></div></div>
-    <div class="gi fade" data-cat="casual"><img src="https://i.ibb.co/1Y0NnGPy/Kakao-Talk-20260421-104424469-26.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">캐주얼</span></div></div>
-    <div class="gi fade" data-cat="casual"><img src="https://i.ibb.co/C5f6DBQ6/Kakao-Talk-20260421-104424469-27.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">캐주얼</span></div></div>
-    <div class="gi fade" data-cat="casual"><img src="https://i.ibb.co/C3C37gtJ/Kakao-Talk-20260421-104424469-28.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">캐주얼</span></div></div>
-    <!-- 아웃도어 -->
-    <div class="gi fade" data-cat="outdoor"><img src="https://i.ibb.co/GQKQpGd4/Kakao-Talk-20260421-104424469-18.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">아웃도어</span></div></div>
-    <div class="gi fade" data-cat="outdoor"><img src="https://i.ibb.co/YFm6Bvs7/Kakao-Talk-20260421-104424469-19.jpg" alt="" loading="lazy"><div class="gi-ov"><span class="gi-lbl">아웃도어</span></div></div>
+  <p style="color:var(--gray);font-size:13px;margin-top:20px;text-align:center;" id="videos-empty-msg">편집 모드에서 유튜브 영상을 추가할 수 있습니다.</p>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="section-label">Gallery</div>
+  <h2 class="section-title">포토 갤러리</h2>
+  <div class="gallery-filter">
+    <button class="gallery-filter-btn active" onclick="filterGallery('all',this)">전체</button>
+    <button class="gallery-filter-btn" onclick="filterGallery('공식 프로필',this)">공식 프로필</button>
+    <button class="gallery-filter-btn" onclick="filterGallery('비즈니스',this)">비즈니스</button>
+    <button class="gallery-filter-btn" onclick="filterGallery('캐주얼',this)">캐주얼</button>
+    <button class="gallery-filter-btn" onclick="filterGallery('아웃도어',this)">아웃도어</button>
+  </div>
+  <div class="gallery-grid" id="gallery-grid">
+    <!-- dynamically rendered -->
   </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="contact-sec">
-  <div class="sec-hd"><span class="sec-eye">Contact</span><h2 class="sec-title">캐스팅 및 문의</h2></div>
-  <p class="contact-sub">드라마, 영화, 광고, 기업 홍보영상 등<br>다양한 프로젝트의 캐스팅 제안과 문의를 기다립니다.</p>
-  <div class="cgrid">
-    <div class="cc fade"><div class="cc-icon">☎</div><h4>전화</h4><p><a href="tel:01091096596">010-9109-6596</a></p></div>
-    <div class="cc fade"><div class="cc-icon">✉</div><h4>이메일</h4><p><a href="mailto:eagley@naver.com">eagley@naver.com</a></p></div>
-    <div class="cc fade"><div class="cc-icon">◈</div><h4>활동 나이대</h4><p>50대 · 60대</p></div>
+<section id="contact">
+  <div class="section-label">Contact</div>
+  <h2 class="section-title" style="text-align:center;">캐스팅 및 문의</h2>
+  <p style="color:rgba(255,255,255,0.6);max-width:500px;margin:0 auto 50px;font-size:14px;line-height:1.8;" data-editable data-field="contact-desc" onclick="openEditor(this,'문의 설명')">드라마, 영화, 광고, 기업 홍보영상 등 다양한 프로젝트의 캐스팅 제안과 문의를 기다립니다.</p>
+  <div class="contact-grid">
+    <div class="contact-item">
+      <div class="contact-icon">☎</div>
+      <h4>전화</h4>
+      <a href="tel:01091096596" data-editable data-field="contact-phone" onclick="openEditor(this,'전화번호')">010-9109-6596</a>
+    </div>
+    <div class="contact-item">
+      <div class="contact-icon">✉</div>
+      <h4>이메일</h4>
+      <a href="mailto:eagley@naver.com" data-editable data-field="contact-email" onclick="openEditor(this,'이메일')">eagley@naver.com</a>
+    </div>
+    <div class="contact-item">
+      <div class="contact-icon">◈</div>
+      <h4>활동 나이대</h4>
+      <p data-editable data-field="contact-age" onclick="openEditor(this,'활동 나이대')">50대 · 60대</p>
+    </div>
   </div>
 </section>
 
 <footer>
-  <div class="f-logo">양광규 · Yang Gwang-gyu</div>
-  <div class="f-copy">© 2026 양광규 배우 공식 포트폴리오 · All Rights Reserved</div>
+  <p data-editable data-field="footer-text" onclick="openEditor(this,'푸터 텍스트')">양광규 · Yang Gwang-gyu</p>
+  <p>© 2026 양광규 배우 공식 포트폴리오 · All Rights Reserved</p>
 </footer>
 
-<!-- LIGHTBOX -->
-<div class="lb" id="lb">
-  <button class="lb-close" id="lb-close">✕</button>
-  <button class="lb-prev" id="lb-prev">‹</button>
-  <img src="" id="lb-img" alt="확대">
-  <button class="lb-next" id="lb-next">›</button>
-</div>
-
 <script>
-const io = new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in')}),{threshold:0.07});
-document.querySelectorAll('.fade').forEach(el=>io.observe(el));
+// ════════════════════════════════════════════════════════
+// DATA STORE
+// ════════════════════════════════════════════════════════
+let siteData = {
+  films: [
+    {id:1, title:"천천히 강렬하게", role:"시장 상인 역", type:"netflix", desc:"Netflix 오리지널 드라마"},
+    {id:2, title:"미래에서 온 편지", role:"노인 역 (주연)", type:"webdrama", desc:"웹드라마"},
+    {id:3, title:"할세상", role:"은퇴자 역", type:"webdrama", desc:"웹드라마"},
+    {id:4, title:"부모님 연구소", role:"전문가 역", type:"webdrama", desc:"웹드라마"},
+    {id:5, title:"킥서비스", role:"성인 학생 역", type:"webdrama", desc:"웹드라마"},
+    {id:6, title:"레슨", role:"공원 신사 역", type:"film", desc:"장편영화"},
+    {id:7, title:"타이고", role:"정치인 역", type:"film", desc:"장편영화"},
+    {id:8, title:"순간의 사라", role:"중년 손님 역", type:"film", desc:"장편영화"},
+    {id:9, title:"수면 위에 두 사람", role:"전시관 관객 역", type:"film", desc:"장편영화"},
+    {id:10, title:"연기자", role:"관객 역", type:"short", desc:"단편영화"},
+  ],
+  ads: [
+    {id:1, brand:"국민연금", cat:"공공기관"},
+    {id:2, brand:"LG전자", cat:"가전"},
+    {id:3, brand:"삼성화재", cat:"금융·보험"},
+    {id:4, brand:"신세계백화점", cat:"유통·패션"},
+    {id:5, brand:"에버랜드", cat:"엔터테인먼트"},
+    {id:6, brand:"초록우산어린이재단", cat:"사회공헌"},
+    {id:7, brand:"성남시", cat:"지자체"},
+    {id:8, brand:"경상남도패스", cat:"지자체"},
+    {id:9, brand:"충청남도 영동군 포도홍보", cat:"지자체"},
+    {id:10, brand:"링탭 풀쎄라", cat:"헬스케어"},
+    {id:11, brand:"풀리오", cat:"헬스케어"},
+    {id:12, brand:"베라슬립", cat:"수면"},
+    {id:13, brand:"강남새로치과", cat:"의료"},
+    {id:14, brand:"트리코엑스", cat:"뷰티"},
+    {id:15, brand:"휴라이트 3H지압침대", cat:"헬스케어"},
+    {id:16, brand:"허리편한케어V1", cat:"헬스케어"},
+    {id:17, brand:"Calo인솔", cat:"헬스케어"},
+    {id:18, brand:"비바랩스", cat:"뷰티·건강"},
+    {id:19, brand:"외 다수", cat:"지속 활동 중"},
+  ],
+  videos: [],
+  gallery: [
+    {id:1, src:"https://i.ibb.co/GQxKL1sG/Kakao-Talk-20260421-104424469-29.jpg", cat:"공식 프로필"},
+    {id:2, src:"https://i.ibb.co/HfVX5g54/Kakao-Talk-20260421-104424469-20.jpg", cat:"공식 프로필"},
+    {id:3, src:"https://i.ibb.co/hRhttWRx/Kakao-Talk-20260421-104424469-21.jpg", cat:"공식 프로필"},
+    {id:4, src:"https://i.ibb.co/yFydhCtH/Kakao-Talk-20260421-104424469-22.jpg", cat:"공식 프로필"},
+    {id:5, src:"https://i.ibb.co/YqWd125/Kakao-Talk-20260421-104424469-23.jpg", cat:"공식 프로필"},
+    {id:6, src:"https://i.ibb.co/x8zrMyFQ/Kakao-Talk-20260421-104424469-24.jpg", cat:"공식 프로필"},
+    {id:7, src:"https://i.ibb.co/HTBrT2f7/Kakao-Talk-20260421-104424469.jpg", cat:"비즈니스"},
+    {id:8, src:"https://i.ibb.co/Y4D0Sg74/Kakao-Talk-20260421-104424469-01.jpg", cat:"비즈니스"},
+    {id:9, src:"https://i.ibb.co/20bRj0Z8/Kakao-Talk-20260421-104424469-06.jpg", cat:"비즈니스"},
+    {id:10, src:"https://i.ibb.co/gLxxwt5L/Kakao-Talk-20260421-104424469-07.jpg", cat:"비즈니스"},
+    {id:11, src:"https://i.ibb.co/XZkzWqLy/Kakao-Talk-20260421-104424469-08.jpg", cat:"비즈니스"},
+    {id:12, src:"https://i.ibb.co/mF1wsfgy/Kakao-Talk-20260421-104424469-09.jpg", cat:"비즈니스"},
+    {id:13, src:"https://i.ibb.co/wZR1n0CQ/Kakao-Talk-20260421-104424469-16.jpg", cat:"비즈니스"},
+    {id:14, src:"https://i.ibb.co/7t3WZv6Q/Kakao-Talk-20260421-104424469-17.jpg", cat:"비즈니스"},
+    {id:15, src:"https://i.ibb.co/5gqx7LNc/Kakao-Talk-20260421-104424469-02.jpg", cat:"캐주얼"},
+    {id:16, src:"https://i.ibb.co/7xZ9QtQ3/Kakao-Talk-20260421-104424469-03.jpg", cat:"캐주얼"},
+    {id:17, src:"https://i.ibb.co/QFnH7ns0/Kakao-Talk-20260421-104424469-04.jpg", cat:"캐주얼"},
+    {id:18, src:"https://i.ibb.co/YBGcbmKv/Kakao-Talk-20260421-104424469-05.jpg", cat:"캐주얼"},
+    {id:19, src:"https://i.ibb.co/8ggfyPk1/Kakao-Talk-20260421-104424469-10.jpg", cat:"캐주얼"},
+    {id:20, src:"https://i.ibb.co/Kx6gYjVn/Kakao-Talk-20260421-104424469-11.jpg", cat:"캐주얼"},
+    {id:21, src:"https://i.ibb.co/qLHpWzms/Kakao-Talk-20260421-104424469-12.jpg", cat:"캐주얼"},
+    {id:22, src:"https://i.ibb.co/Rp7FrTbX/Kakao-Talk-20260421-104424469-13.jpg", cat:"캐주얼"},
+    {id:23, src:"https://i.ibb.co/tPszzKzN/Kakao-Talk-20260421-104424469-14.jpg", cat:"캐주얼"},
+    {id:24, src:"https://i.ibb.co/Z68ZnSMZ/Kakao-Talk-20260421-104424469-15.jpg", cat:"캐주얼"},
+    {id:25, src:"https://i.ibb.co/V43w8mF/Kakao-Talk-20260421-104424469-25.jpg", cat:"캐주얼"},
+    {id:26, src:"https://i.ibb.co/1Y0NnGPy/Kakao-Talk-20260421-104424469-26.jpg", cat:"캐주얼"},
+    {id:27, src:"https://i.ibb.co/C5f6DBQ6/Kakao-Talk-20260421-104424469-27.jpg", cat:"캐주얼"},
+    {id:28, src:"https://i.ibb.co/C3C37gtJ/Kakao-Talk-20260421-104424469-28.jpg", cat:"캐주얼"},
+    {id:29, src:"https://i.ibb.co/GQKQpGd4/Kakao-Talk-20260421-104424469-18.jpg", cat:"아웃도어"},
+    {id:30, src:"https://i.ibb.co/YFm6Bvs7/Kakao-Talk-20260421-104424469-19.jpg", cat:"아웃도어"},
+  ]
+};
 
-document.querySelectorAll('.gtab').forEach(tab=>{
-  tab.addEventListener('click',()=>{
-    document.querySelectorAll('.gtab').forEach(t=>t.classList.remove('on'));
-    tab.classList.add('on');
-    const cat=tab.dataset.cat;
-    document.querySelectorAll('.gi').forEach(item=>{item.style.display=(cat==='all'||item.dataset.cat===cat)?'block':'none';});
+let isEditMode = false;
+let ADMIN_PW = '1234';
+let currentEditEl = null;
+let currentImgEl = null;
+let currentImgId = null;
+let pendingImgSrc = null;
+let lightboxIndex = 0;
+let galleryFileBase64 = null;
+
+// ── Load from localStorage if saved ──
+function loadSavedData() {
+  try {
+    const saved = localStorage.getItem('ygk_siteData');
+    if (saved) {
+      siteData = JSON.parse(saved);
+    }
+    const savedFields = localStorage.getItem('ygk_fields');
+    if (savedFields) {
+      const fields = JSON.parse(savedFields);
+      Object.keys(fields).forEach(field => {
+        const el = document.querySelector('[data-field="'+field+'"]');
+        if (el) el.innerHTML = fields[field];
+      });
+    }
+    const savedImgs = localStorage.getItem('ygk_imgs');
+    if (savedImgs) {
+      const imgs = JSON.parse(savedImgs);
+      Object.keys(imgs).forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.src = imgs[id];
+      });
+    }
+  } catch(e) {}
+}
+
+function collectFields() {
+  const fields = {};
+  document.querySelectorAll('[data-field]').forEach(el => {
+    fields[el.dataset.field] = el.innerHTML;
+  });
+  return fields;
+}
+
+function collectImgs() {
+  const imgs = {};
+  ['hero-bg-img','about-img1','about-img2','about-img3'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) imgs[id] = el.src;
+  });
+  return imgs;
+}
+
+// ── Render dynamic sections ──
+function renderFilms(filter) {
+  const grid = document.getElementById('films-grid');
+  const items = filter && filter !== 'all' ? siteData.films.filter(f=>f.type===filter) : siteData.films;
+  const badgeMap = {netflix:'netflix',webdrama:'webdrama',film:'film',short:'short'};
+  const badgeLabelMap = {netflix:'Netflix · 드라마',webdrama:'웹드라마',film:'장편영화',short:'단편영화'};
+  grid.innerHTML = items.map(f=>`
+    <div class="film-card" data-type="${f.type}" data-id="${f.id}" style="position:relative;">
+      <button class="delete-btn" onclick="deleteFilm(${f.id})" title="삭제">✕</button>
+      <span class="film-badge ${badgeMap[f.type]}">${badgeLabelMap[f.type]}</span>
+      <div class="film-title">${f.title}</div>
+      <div class="film-role">${f.role}</div>
+      ${f.desc ? `<div style="font-size:11px;color:var(--gray);margin-top:6px;letter-spacing:1px;">${f.desc}</div>` : ''}
+    </div>
+  `).join('');
+}
+
+function renderAds() {
+  const grid = document.getElementById('ads-grid');
+  grid.innerHTML = siteData.ads.map(a=>`
+    <div class="ad-card" data-id="${a.id}" style="position:relative;">
+      <button class="delete-btn" onclick="deleteAd(${a.id})" title="삭제">✕</button>
+      <div class="ad-brand">${a.brand}</div>
+      <div class="ad-cat">${a.cat}</div>
+    </div>
+  `).join('');
+}
+
+function renderVideos() {
+  const grid = document.getElementById('videos-grid');
+  const emptyMsg = document.getElementById('videos-empty-msg');
+  if (siteData.videos.length === 0) {
+    grid.innerHTML = '';
+    emptyMsg.style.display = 'block';
+    return;
+  }
+  emptyMsg.style.display = 'none';
+  grid.innerHTML = siteData.videos.map(v=>`
+    <div class="video-item" style="position:relative;" data-id="${v.id}">
+      <button class="delete-btn" onclick="deleteVideo(${v.id})" title="삭제" style="z-index:10;">✕</button>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/${v.ytId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      ${v.label ? `<div class="video-label">${v.label}</div>` : ''}
+    </div>
+  `).join('');
+}
+
+let galleryFilter = 'all';
+function renderGallery(filter) {
+  galleryFilter = filter || galleryFilter;
+  const grid = document.getElementById('gallery-grid');
+  const items = galleryFilter === 'all' ? siteData.gallery : siteData.gallery.filter(g=>g.cat===galleryFilter);
+  grid.innerHTML = items.map((g,i)=>`
+    <div class="gallery-item" style="position:relative;" data-id="${g.id}">
+      <button class="delete-btn" onclick="deleteGallery(${g.id})" title="삭제">✕</button>
+      <img src="${g.src}" alt="${g.cat}" loading="lazy" onclick="openLightbox(${siteData.gallery.indexOf(g)})">
+      <div class="cat-label">${g.cat}</div>
+    </div>
+  `).join('');
+}
+
+function filterFilms(type, btn) {
+  document.querySelectorAll('.film-filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderFilms(type);
+}
+function filterGallery(cat, btn) {
+  document.querySelectorAll('.gallery-filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderGallery(cat);
+}
+
+// ── Delete functions ──
+function deleteFilm(id) {
+  if (!isEditMode) return;
+  if (!confirm('이 출연작을 삭제하시겠습니까?')) return;
+  siteData.films = siteData.films.filter(f=>f.id!==id);
+  renderFilms();
+}
+function deleteAd(id) {
+  if (!isEditMode) return;
+  if (!confirm('이 광고를 삭제하시겠습니까?')) return;
+  siteData.ads = siteData.ads.filter(a=>a.id!==id);
+  renderAds();
+}
+function deleteVideo(id) {
+  if (!isEditMode) return;
+  if (!confirm('이 영상을 삭제하시겠습니까?')) return;
+  siteData.videos = siteData.videos.filter(v=>v.id!==id);
+  renderVideos();
+}
+function deleteGallery(id) {
+  if (!isEditMode) return;
+  if (!confirm('이 사진을 삭제하시겠습니까?')) return;
+  siteData.gallery = siteData.gallery.filter(g=>g.id!==id);
+  renderGallery();
+}
+
+// ── Add modals ──
+function openAddFilmModal() { document.getElementById('add-film-modal').classList.add('open'); }
+function openAddAdModal() { document.getElementById('add-ad-modal').classList.add('open'); }
+function openAddVideoModal() { document.getElementById('add-video-modal').classList.add('open'); }
+function openAddGalleryModal() { 
+  galleryFileBase64 = null;
+  document.getElementById('gallery-url-input').value = '';
+  document.getElementById('add-gallery-modal').classList.add('open'); 
+}
+
+function confirmAddFilm() {
+  const title = document.getElementById('film-title-input').value.trim();
+  const role = document.getElementById('film-role-input').value.trim();
+  const type = document.getElementById('film-type-input').value;
+  const desc = document.getElementById('film-desc-input').value.trim();
+  if (!title) { alert('제목을 입력하세요'); return; }
+  const id = Date.now();
+  siteData.films.push({id, title, role, type, desc});
+  renderFilms();
+  document.getElementById('add-film-modal').classList.remove('open');
+  document.getElementById('film-title-input').value = '';
+  document.getElementById('film-role-input').value = '';
+  document.getElementById('film-desc-input').value = '';
+  showSaveStatus('출연작이 추가되었습니다!');
+}
+
+function confirmAddAd() {
+  const brand = document.getElementById('ad-brand-input').value.trim();
+  const cat = document.getElementById('ad-cat-input').value.trim();
+  if (!brand) { alert('브랜드명을 입력하세요'); return; }
+  const id = Date.now();
+  siteData.ads.push({id, brand, cat: cat || ''});
+  renderAds();
+  document.getElementById('add-ad-modal').classList.remove('open');
+  document.getElementById('ad-brand-input').value = '';
+  document.getElementById('ad-cat-input').value = '';
+  showSaveStatus('광고가 추가되었습니다!');
+}
+
+function confirmAddVideo() {
+  let url = document.getElementById('video-url-input').value.trim();
+  const label = document.getElementById('video-label-input').value.trim();
+  if (!url) { alert('유튜브 URL을 입력하세요'); return; }
+  let ytId = url;
+  const m = url.match(/(?:v=|youtu\.be\/|embed\/)([a-zA-Z0-9_-]{11})/);
+  if (m) ytId = m[1];
+  const id = Date.now();
+  siteData.videos.push({id, ytId, label});
+  renderVideos();
+  document.getElementById('add-video-modal').classList.remove('open');
+  document.getElementById('video-url-input').value = '';
+  document.getElementById('video-label-input').value = '';
+  showSaveStatus('영상이 추가되었습니다!');
+}
+
+function handleGalleryFile(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function(ev) {
+    galleryFileBase64 = ev.target.result;
+    document.getElementById('gallery-url-input').value = '(파일 선택됨)';
+  };
+  reader.readAsDataURL(file);
+}
+
+function confirmAddGallery() {
+  const cat = document.getElementById('gallery-cat-input').value;
+  const src = galleryFileBase64 || document.getElementById('gallery-url-input').value.trim();
+  if (!src || src === '(파일 선택됨)' && !galleryFileBase64) { alert('이미지를 선택하거나 URL을 입력하세요'); return; }
+  const id = Date.now();
+  siteData.gallery.push({id, src: galleryFileBase64 || src, cat});
+  galleryFileBase64 = null;
+  renderGallery();
+  document.getElementById('add-gallery-modal').classList.remove('open');
+  document.getElementById('gallery-url-input').value = '';
+  showSaveStatus('사진이 추가되었습니다!');
+}
+
+// ── Admin / Login ──
+function openLoginModal() { document.getElementById('login-modal').classList.add('open'); document.getElementById('pw-input').focus(); }
+function checkPw() {
+  const pw = document.getElementById('pw-input').value;
+  if (pw === ADMIN_PW) {
+    document.getElementById('login-modal').classList.remove('open');
+    document.getElementById('pw-input').value = '';
+    enterEditMode();
+  } else {
+    document.getElementById('login-error').textContent = '비밀번호가 틀렸습니다.';
+    document.getElementById('pw-input').value = '';
+  }
+}
+
+function enterEditMode() {
+  isEditMode = true;
+  document.body.classList.add('edit-mode');
+  document.getElementById('admin-bar').classList.add('visible');
+  document.getElementById('admin-bar-spacer').classList.add('visible');
+  document.getElementById('main-nav').classList.add('admin-offset');
+  // Make editable fields focusable
+  document.querySelectorAll('[data-editable]').forEach(el => {
+    el.setAttribute('tabindex','0');
+  });
+}
+
+function exitEditMode() {
+  isEditMode = false;
+  document.body.classList.remove('edit-mode');
+  document.getElementById('admin-bar').classList.remove('visible');
+  document.getElementById('admin-bar-spacer').classList.remove('visible');
+  document.getElementById('main-nav').classList.remove('admin-offset');
+  closeEditorPanel();
+  closeImgPanel();
+}
+
+// ── Text Editor ──
+function openEditor(el, fieldName) {
+  if (!isEditMode) return;
+  currentEditEl = el;
+  document.getElementById('ep-field-name').textContent = fieldName;
+  document.getElementById('ep-textarea').value = el.innerHTML.replace(/<br\s*\/?>/gi,'\n').replace(/<[^>]+>/g,'');
+  document.getElementById('editor-panel').classList.add('open');
+  setTimeout(()=>document.getElementById('ep-textarea').focus(),100);
+}
+
+function applyEdit() {
+  if (!currentEditEl) return;
+  const val = document.getElementById('ep-textarea').value;
+  currentEditEl.innerHTML = val.replace(/\n/g,'<br>');
+  closeEditorPanel();
+  showSaveStatus('변경사항이 적용되었습니다');
+}
+
+function closeEditorPanel() {
+  document.getElementById('editor-panel').classList.remove('open');
+  currentEditEl = null;
+}
+
+// ── Image Editor ──
+function openImgPanel(wrapEl, imgId, label) {
+  if (!isEditMode) return;
+  currentImgEl = document.getElementById(imgId);
+  currentImgId = imgId;
+  pendingImgSrc = null;
+  document.getElementById('img-url-input').value = '';
+  document.getElementById('img-preview').style.display = 'none';
+  document.getElementById('img-upload-panel').classList.add('open');
+}
+
+function handleFileSelect(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function(ev) {
+    pendingImgSrc = ev.target.result;
+    const prev = document.getElementById('img-preview');
+    prev.src = pendingImgSrc;
+    prev.style.display = 'block';
+  };
+  reader.readAsDataURL(file);
+}
+
+function applyImgUrl() {
+  const url = document.getElementById('img-url-input').value.trim();
+  if (!url) return;
+  pendingImgSrc = url;
+  const prev = document.getElementById('img-preview');
+  prev.src = url;
+  prev.style.display = 'block';
+}
+
+function applyImgChange() {
+  if (!pendingImgSrc || !currentImgEl) return;
+  currentImgEl.src = pendingImgSrc;
+  closeImgPanel();
+  showSaveStatus('사진이 교체되었습니다');
+}
+
+function closeImgPanel() {
+  document.getElementById('img-upload-panel').classList.remove('open');
+  document.getElementById('file-input').value = '';
+  currentImgEl = null;
+  pendingImgSrc = null;
+}
+
+// ── Save / Export ──
+function saveData() {
+  try {
+    localStorage.setItem('ygk_siteData', JSON.stringify(siteData));
+    localStorage.setItem('ygk_fields', JSON.stringify(collectFields()));
+    localStorage.setItem('ygk_imgs', JSON.stringify(collectImgs()));
+    showSaveStatus('✓ 저장되었습니다! (' + new Date().toLocaleTimeString('ko-KR') + ')');
+  } catch(e) {
+    alert('저장 실패: ' + e.message);
+  }
+}
+
+function showSaveStatus(msg) {
+  const el = document.getElementById('save-status');
+  el.textContent = msg;
+  setTimeout(()=>el.textContent='',3000);
+}
+
+function exportHTML() {
+  saveData();
+  const clone = document.documentElement.cloneNode(true);
+  // Bake current data into clone
+  const script = clone.querySelector('script');
+  if (script) {
+    script.textContent = script.textContent.replace(
+      /let siteData = \{[\s\S]*?\};/,
+      'let siteData = ' + JSON.stringify(siteData, null, 2) + ';'
+    );
+  }
+  // Bake field values
+  const fields = collectFields();
+  Object.keys(fields).forEach(f => {
+    const el = clone.querySelector('[data-field="'+f+'"]');
+    if (el) el.innerHTML = fields[f];
+  });
+  // Bake image srcs
+  const imgs = collectImgs();
+  Object.keys(imgs).forEach(id => {
+    const el = clone.getElementById(id);
+    if (el) el.src = imgs[id];
+  });
+  const html = '<!DOCTYPE html>\n' + clone.outerHTML;
+  const blob = new Blob([html], {type:'text/html'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'yanggwangkyu_' + new Date().toISOString().slice(0,10) + '.html';
+  a.click();
+  showSaveStatus('📥 HTML 파일이 다운로드되었습니다!');
+}
+
+// ── Lightbox ──
+function openLightbox(idx) {
+  lightboxIndex = idx;
+  const img = siteData.gallery[idx];
+  document.getElementById('lightbox-img').src = img.src;
+  document.getElementById('lightbox').classList.add('open');
+}
+function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }
+function lightboxNav(dir) {
+  lightboxIndex = (lightboxIndex + dir + siteData.gallery.length) % siteData.gallery.length;
+  document.getElementById('lightbox-img').src = siteData.gallery[lightboxIndex].src;
+}
+document.getElementById('lightbox').addEventListener('click', function(e) {
+  if (e.target === this) closeLightbox();
+});
+
+// ── Close modals on backdrop click ──
+['add-film-modal','add-ad-modal','add-video-modal','add-gallery-modal','login-modal'].forEach(id => {
+  document.getElementById(id).addEventListener('click', function(e) {
+    if (e.target === this) this.classList.remove('open');
   });
 });
 
-document.querySelectorAll('.ftab').forEach(tab=>{
-  tab.addEventListener('click',()=>{
-    document.querySelectorAll('.ftab').forEach(t=>t.classList.remove('on'));
-    tab.classList.add('on');
-    const cat=tab.dataset.fcat;
-    document.querySelectorAll('.film-card').forEach(card=>{card.style.display=(cat==='all'||card.dataset.fcat===cat)?'block':'none';});
+// ── Keyboard shortcuts ──
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    closeLightbox();
+    closeEditorPanel();
+    closeImgPanel();
+    ['add-film-modal','add-ad-modal','add-video-modal','add-gallery-modal','login-modal'].forEach(id => {
+      document.getElementById(id).classList.remove('open');
+    });
+  }
+  if (e.key === 'ArrowLeft' && document.getElementById('lightbox').classList.contains('open')) lightboxNav(-1);
+  if (e.key === 'ArrowRight' && document.getElementById('lightbox').classList.contains('open')) lightboxNav(1);
+  if (e.key === 'Enter' && document.getElementById('login-modal').classList.contains('open')) checkPw();
+  if (isEditMode && e.ctrlKey && e.key === 's') { e.preventDefault(); saveData(); }
+});
+
+// ── Nav scroll behavior ──
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('main-nav');
+  if (window.scrollY > 60) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+  // Active nav link
+  const sections = ['about','filmography','ads','videos','gallery','contact'];
+  const scrollY = window.scrollY + 100;
+  let current = '';
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && el.offsetTop <= scrollY) current = id;
+  });
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#'+current);
   });
 });
 
-const lb=document.getElementById('lb'),lbImg=document.getElementById('lb-img');
-let imgs=[],cur=0;
-function getImgs(){return[...document.querySelectorAll('.gi:not([style*="none"]) img')].map(i=>i.src);}
-document.querySelectorAll('.gi').forEach(item=>{
-  item.addEventListener('click',()=>{
-    imgs=getImgs();
-    const src=item.querySelector('img').src;
-    cur=imgs.indexOf(src);
-    lbImg.src=src;
-    lb.classList.add('show');
-    document.body.style.overflow='hidden';
-  });
-});
-document.getElementById('lb-close').onclick=()=>{lb.classList.remove('show');document.body.style.overflow='';};
-lb.addEventListener('click',e=>{if(e.target===lb){lb.classList.remove('show');document.body.style.overflow='';}});
-document.getElementById('lb-prev').onclick=()=>{cur=(cur-1+imgs.length)%imgs.length;lbImg.src=imgs[cur];};
-document.getElementById('lb-next').onclick=()=>{cur=(cur+1)%imgs.length;lbImg.src=imgs[cur];};
-document.addEventListener('keydown',e=>{
-  if(!lb.classList.contains('show'))return;
-  if(e.key==='ArrowLeft'){cur=(cur-1+imgs.length)%imgs.length;lbImg.src=imgs[cur];}
-  if(e.key==='ArrowRight'){cur=(cur+1)%imgs.length;lbImg.src=imgs[cur];}
-  if(e.key==='Escape'){lb.classList.remove('show');document.body.style.overflow='';}
-});
+// ── INIT ──
+loadSavedData();
+renderFilms();
+renderAds();
+renderVideos();
+renderGallery();
 </script>
 </body>
 </html>
