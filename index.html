@@ -454,6 +454,7 @@ footer p { font-size: 11px; color: rgba(255,255,255,0.3); letter-spacing: 1px; }
   <button class="admin-btn add" onclick="openAddGalleryModal()">+ 갤러리 사진 추가</button>
   <button class="admin-btn save" onclick="saveData()">💾 중간저장</button>
   <button class="admin-btn export" onclick="exportHTML()">📥 HTML 내보내기</button>
+  <button class="admin-btn" style="background:#6b21a8;color:white;" onclick="openChangePwModal()">🔑 비밀번호 변경</button>
   <span id="save-status"></span>
   <button class="admin-btn exit" onclick="exitEditMode()">✕ 편집 종료</button>
 </div>
@@ -462,12 +463,41 @@ footer p { font-size: 11px; color: rgba(255,255,255,0.3); letter-spacing: 1px; }
 <!-- ═══ LOGIN MODAL ═══ -->
 <div id="login-modal">
   <div class="login-box">
-    <h3>관리자 편집 모드</h3>
-    <p>비밀번호를 입력하세요</p>
-    <input type="password" id="pw-input" placeholder="••••" onkeydown="if(event.key==='Enter')checkPw()">
-    <button onclick="checkPw()">입력</button>
-    <div id="login-error"></div>
-    <p style="color:#4b5563;font-size:11px;margin-top:16px;">초기 비밀번호: 1234</p>
+    <div style="display:flex;gap:0;margin-bottom:24px;border-bottom:1px solid #374151;">
+      <button id="tab-login" onclick="switchTab('login')" style="flex:1;padding:10px;background:none;border:none;color:rgba(201,168,76,0.9);font-size:13px;cursor:pointer;border-bottom:2px solid var(--gold);margin-bottom:-1px;font-family:'Noto Sans KR',sans-serif;">로그인</button>
+      <button id="tab-reset" onclick="switchTab('reset')" style="flex:1;padding:10px;background:none;border:none;color:rgba(255,255,255,0.3);font-size:13px;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;font-family:'Noto Sans KR',sans-serif;">비밀번호 찾기</button>
+    </div>
+
+    <!-- 로그인 탭 -->
+    <div id="panel-login">
+      <h3>관리자 편집 모드</h3>
+      <p>비밀번호를 입력하세요</p>
+      <input type="password" id="pw-input" placeholder="••••" onkeydown="if(event.key==='Enter')checkPw()">
+      <button onclick="checkPw()">입력</button>
+      <div id="login-error"></div>
+    </div>
+
+    <!-- 비밀번호 찾기 탭 -->
+    <div id="panel-reset" style="display:none;">
+      <h3>비밀번호 초기화</h3>
+      <p style="color:#9ca3af;font-size:13px;margin-bottom:16px;line-height:1.6;">비밀번호를 잊으셨나요?<br>아래 버튼을 누르면 <strong style="color:#fbbf24;">1234</strong>로 초기화됩니다.</p>
+      <button onclick="resetPw()" style="background:#dc2626;">초기화 (1234로 리셋)</button>
+      <div id="reset-msg" style="color:#86efac;font-size:12px;margin-top:8px;min-height:18px;"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 비밀번호 변경 모달 ═══ -->
+<div id="change-pw-modal" style="display:none;position:fixed;inset:0;z-index:10001;background:rgba(0,0,0,0.85);align-items:center;justify-content:center;">
+  <div class="login-box">
+    <h3>비밀번호 변경</h3>
+    <p>현재 비밀번호 확인 후 새 비밀번호를 설정하세요</p>
+    <input type="password" id="pw-current" placeholder="현재 비밀번호" style="margin-bottom:10px;">
+    <input type="password" id="pw-new" placeholder="새 비밀번호" style="margin-bottom:10px;">
+    <input type="password" id="pw-new2" placeholder="새 비밀번호 확인" style="margin-bottom:16px;">
+    <button onclick="confirmChangePw()">변경하기</button>
+    <div id="change-pw-msg" style="font-size:12px;margin-top:8px;min-height:18px;"></div>
+    <button onclick="document.getElementById('change-pw-modal').style.display='none'" style="background:transparent;border:1px solid #374151;color:#9ca3af;margin-top:8px;">취소</button>
   </div>
 </div>
 
@@ -866,7 +896,7 @@ let siteData = {
 };
 
 let isEditMode = false;
-let ADMIN_PW = '1234';
+let ADMIN_PW = localStorage.getItem('ygk_pw') || '1234';
 let currentEditEl = null;
 let currentImgEl = null;
 let currentImgId = null;
@@ -1096,7 +1126,24 @@ function confirmAddGallery() {
 }
 
 // ── Admin / Login ──
-function openLoginModal() { document.getElementById('login-modal').classList.add('open'); document.getElementById('pw-input').focus(); }
+function openLoginModal() {
+  switchTab('login');
+  document.getElementById('login-modal').classList.add('open');
+  setTimeout(()=>document.getElementById('pw-input').focus(),100);
+}
+
+function switchTab(tab) {
+  const isLogin = tab === 'login';
+  document.getElementById('panel-login').style.display = isLogin ? 'block' : 'none';
+  document.getElementById('panel-reset').style.display = isLogin ? 'none' : 'block';
+  document.getElementById('tab-login').style.color = isLogin ? 'rgba(201,168,76,0.9)' : 'rgba(255,255,255,0.3)';
+  document.getElementById('tab-login').style.borderBottomColor = isLogin ? 'var(--gold)' : 'transparent';
+  document.getElementById('tab-reset').style.color = isLogin ? 'rgba(255,255,255,0.3)' : 'rgba(201,168,76,0.9)';
+  document.getElementById('tab-reset').style.borderBottomColor = isLogin ? 'transparent' : 'var(--gold)';
+  document.getElementById('login-error').textContent = '';
+  document.getElementById('reset-msg').textContent = '';
+}
+
 function checkPw() {
   const pw = document.getElementById('pw-input').value;
   if (pw === ADMIN_PW) {
@@ -1107,6 +1154,47 @@ function checkPw() {
     document.getElementById('login-error').textContent = '비밀번호가 틀렸습니다.';
     document.getElementById('pw-input').value = '';
   }
+}
+
+function resetPw() {
+  if (!confirm('비밀번호를 1234로 초기화하시겠습니까?')) return;
+  ADMIN_PW = '1234';
+  localStorage.setItem('ygk_pw', '1234');
+  document.getElementById('reset-msg').textContent = '✓ 비밀번호가 1234로 초기화되었습니다.';
+  setTimeout(() => switchTab('login'), 1800);
+}
+
+function openChangePwModal() {
+  document.getElementById('pw-current').value = '';
+  document.getElementById('pw-new').value = '';
+  document.getElementById('pw-new2').value = '';
+  document.getElementById('change-pw-msg').textContent = '';
+  document.getElementById('change-pw-msg').style.color = '#86efac';
+  document.getElementById('change-pw-modal').style.display = 'flex';
+  setTimeout(()=>document.getElementById('pw-current').focus(),100);
+}
+
+function confirmChangePw() {
+  const cur = document.getElementById('pw-current').value;
+  const nw = document.getElementById('pw-new').value;
+  const nw2 = document.getElementById('pw-new2').value;
+  const msg = document.getElementById('change-pw-msg');
+  if (cur !== ADMIN_PW) {
+    msg.style.color = '#f87171'; msg.textContent = '현재 비밀번호가 틀렸습니다.'; return;
+  }
+  if (nw.length < 4) {
+    msg.style.color = '#f87171'; msg.textContent = '새 비밀번호는 4자 이상이어야 합니다.'; return;
+  }
+  if (nw !== nw2) {
+    msg.style.color = '#f87171'; msg.textContent = '새 비밀번호가 일치하지 않습니다.'; return;
+  }
+  ADMIN_PW = nw;
+  localStorage.setItem('ygk_pw', nw);
+  msg.style.color = '#86efac';
+  msg.textContent = '✓ 비밀번호가 변경되었습니다!';
+  setTimeout(() => {
+    document.getElementById('change-pw-modal').style.display = 'none';
+  }, 1500);
 }
 
 function enterEditMode() {
@@ -1280,6 +1368,7 @@ document.addEventListener('keydown', e => {
     closeLightbox();
     closeEditorPanel();
     closeImgPanel();
+    document.getElementById('change-pw-modal').style.display = 'none';
     ['add-film-modal','add-ad-modal','add-video-modal','add-gallery-modal','login-modal'].forEach(id => {
       document.getElementById(id).classList.remove('open');
     });
